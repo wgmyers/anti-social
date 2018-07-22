@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "anti-social",
+  "version": "0.1.0",
+
+  "description": "An extension aimed at increasing human happiness by blocking social media sites.",
+  "icons": {
+    "48": "icons/no-entry-48.png",
+    "96": "icons/no-entry-96.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "web_accessible_resources": [
+    "pages/blocked.html"
+  ]
+
+}
