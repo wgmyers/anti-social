@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "anti-social",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "description": "An extension aimed at increasing human happiness by blocking social media sites.",
   "icons": {
