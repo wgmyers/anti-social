@@ -1,6 +1,5 @@
 ## TODO
 
-* Implement settings page
 * Allow user to set blacklist of sites
 * Allow user to set times when blocking should occur
 * Implement optional enable/disable blocking browser button (?)

@@ -1,3 +1,6 @@
+## v0.1.4
+* Added (non-functional) options page
+
 ## v0.1.1
 * Added css to blocked.html page
 
