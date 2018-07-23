@@ -19,6 +19,38 @@ function updateList(list) {
   document.getElementById("blockitems").value = list.join('\n');
 }
 
+function isUrlInList(url) {
+  return blockList.includes(url);
+
+  //var ret = false;
+  //for (var item in blockList) {
+  //  if (item === url) {
+  //    ret = true;
+  //  }
+  //}
+  //return ret;
+}
+
+function isUrlValid(url) {
+  // Found on stackoverflow
+  //https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
+  try {
+    new URL(url);
+    return true;
+  } catch (_) {
+    console.log(`isUrlValid: ` + url);
+    return false;
+  }
+}
+
+function isUrlOk(url) {
+  var ret = false;
+  if((isUrlValid(url) === true) && (isUrlInList(url) === false)) {
+    ret = true;
+  }
+  return ret;
+}
+
 // addToBlockList
 // Adds a URL to block list
 function addToBlockList(e) {
@@ -27,19 +59,15 @@ function addToBlockList(e) {
   // Get new url to add from form.
   var newUrl = document.getElementById("newsite").value;
 
-  // Verify new url is url-like.
-  // FIXME - halp!
-
-  // Reject the empty string
-  if (newUrl === "") {
-    return;
+  // Validate url
+  if(isUrlOk(newUrl) === true) {
+    // If ok, add to block list,
+    // otherwise throw error.
+    // Save list also so it persists
+    blockList.push(newUrl);
+    updateList(blockList);
+    saveList();
   }
-  // If ok, add to block list,
-  // otherwise throw error.
-  // Save list also so it persists
-  blockList.push(newUrl);
-  updateList(blockList);
-  saveList();
 
 }
 
