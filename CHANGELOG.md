@@ -1,3 +1,8 @@
+## v0.1.5
+* Disabled non-functional buttons in options page
+* Implemented 'restore defaults'
+* Implemented 'add to block list'
+
 ## v0.1.4
 * Added (non-functional) options page
 
