@@ -1,6 +1,6 @@
 // Default block list
 // FIXME - this should live in an external defaults.json file
-//         as background.js needs it too
+//         as options.js needs it too
 var defaultList = ["https://facebook.com/", "https://www.facebook.com/",
                    "https://twitter.com/", "https://www.twitter.com/"];
 var blockList;
