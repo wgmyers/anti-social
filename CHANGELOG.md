@@ -1,3 +1,6 @@
+## v0.2.0 - 2018-07-23
+* Blocklist in options page is now functional and updates real blocklist
+
 ## v0.1.5 - 2018-07-23
 * Disabled non-functional buttons in options page
 * Implemented 'restore defaults'
