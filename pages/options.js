@@ -19,16 +19,10 @@ function updateList(list) {
   document.getElementById("blockitems").value = list.join('\n');
 }
 
+// isUrlInList, isUrlValid, isUrlOk
+// Three functions to validate candidate additions to blockList
 function isUrlInList(url) {
   return blockList.includes(url);
-
-  //var ret = false;
-  //for (var item in blockList) {
-  //  if (item === url) {
-  //    ret = true;
-  //  }
-  //}
-  //return ret;
 }
 
 function isUrlValid(url) {
@@ -54,7 +48,7 @@ function isUrlOk(url) {
 // addToBlockList
 // Adds a URL to block list
 function addToBlockList(e) {
-  e.preventDefault(); // I need to look this up and find out what it is.
+  e.preventDefault(); // prevent default form 'submit' action
 
   // Get new url to add from form.
   var newUrl = document.getElementById("newsite").value;
@@ -62,7 +56,7 @@ function addToBlockList(e) {
   // Validate url
   if(isUrlOk(newUrl) === true) {
     // If ok, add to block list,
-    // otherwise throw error.
+    // otherwise silently do nothing
     // Save list also so it persists
     blockList.push(newUrl);
     updateList(blockList);
@@ -74,7 +68,7 @@ function addToBlockList(e) {
 // restoreDefaults
 // Restores the default block list
 function restoreDefaults(e) {
-  e.preventDefault(); // seriously, what is this for?
+  e.preventDefault(); // prevent default form 'submit' action
 
   blockList = defaultList.slice();
 
