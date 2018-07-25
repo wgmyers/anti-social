@@ -11,11 +11,19 @@ var blockerPage = browser.extension.getURL("pages/blocked.html");
 // createBlockList
 // Our URL list needs wildcards added to it.
 // This function nukes current patterns content,
-// iterates through a given list, and populates patterns properly
+// iterates through a given list, and populates patterns properly.
+// We add * to anything with a trailing slash, but leave deliberately
+// constructed URLs without trailing slash alone.
 function createBlockList(list) {
   console.log("createBlockList");
   patterns = list.map( function(v) {
-    return v + "*";
+    // Add wildcard to anything with trailing slash
+    // Leave everything else alone.
+    if (v.slice(-1) === "/") {
+      return v + "*";
+    } else {
+      return v;
+    }
   });
 }
 

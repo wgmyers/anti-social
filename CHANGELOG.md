@@ -1,3 +1,6 @@
+## v0.2.1 - 2018-07-25
+* Improve URL parsing logic
+
 ## v0.2.0 - 2018-07-23
 * Blocklist in options page is now functional and updates real blocklist
 
