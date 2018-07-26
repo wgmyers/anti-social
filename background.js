@@ -19,12 +19,15 @@ function createBlockList(list) {
   patterns = list.map( function(v) {
     // Add wildcard to anything with trailing slash
     // Leave everything else alone.
-    if (v.slice(-1) === "/") {
+    if (v.slice(-1) == "/") {
       return v + "*";
     } else {
       return v;
     }
   });
+  for (var p of patterns) {
+    console.log(p);
+  }
 }
 
 // updateListener

@@ -13,6 +13,10 @@ function saveList() {
   browser.storage.local.set({
     blockList
   });
+  console.log("saveList");
+  for (var i of blockList) {
+    console.log(i);
+  }
 }
 
 // updateList
@@ -21,30 +25,45 @@ function updateList(list) {
   document.getElementById("blockitems").value = list.join('\n');
 }
 
-// isUrlInList, isUrlValid, isUrlOk
-// Three functions to validate candidate additions to blockList
-function isUrlInList(url) {
-  return blockList.includes(url);
-}
-
-function isUrlValid(url) {
-  // Found on stackoverflow
-  //https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
-  try {
-    new URL(url);
-    return true;
-  } catch (_) {
-    console.log(`isUrlValid: ` + url);
-    return false;
-  }
-}
-
+// isUrlOk
+// Validates candidate additions to blockList
 function isUrlOk(url) {
+
+  function isUrlInList(url) {
+    return blockList.includes(url);
+  }
+
+  function isUrlValid(url) {
+    // Found on stackoverflow
+    //https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
+    try {
+      new URL(url);
+      return true;
+    } catch (_) {
+      console.log(`isUrlValid: ` + url);
+      return false;
+    }
+  }
+
   var ret = false;
   if((isUrlValid(url) === true) && (isUrlInList(url) === false)) {
     ret = true;
   }
   return ret;
+}
+
+// addSlashIfNeeded
+// Checks if given url is domain only,
+// If so, ensures trailing slash is present
+function addSlashIfNeeded(url) {
+  var testURL = new URL (url);
+  if (!testURL.pathname) {
+    // No pathname found. Add trailing slash if needed.
+    if(url.slice(-1) !== "/") {
+        url = url + "/";
+    }
+  }
+  return url;
 }
 
 // addToBlockList
@@ -60,6 +79,8 @@ function addToBlockList(e) {
     // If ok, add to block list,
     // otherwise silently do nothing
     // Save list also so it persists
+    // Add trailing slash if domain only given and slash missing
+    //newUrl = addSlashIfNeeded(newUrl);
     blockList.push(newUrl);
     updateList(blockList);
     saveList();
