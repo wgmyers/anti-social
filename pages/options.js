@@ -57,12 +57,10 @@ function isUrlOk(url) {
 // If so, ensures trailing slash is present
 function addSlashIfNeeded(url) {
   var testURL = new URL (url);
-  if (!testURL.pathname) {
-    // No pathname found. Add trailing slash if needed.
-    if(url.slice(-1) !== "/") {
-        url = url + "/";
-    }
-  }
+  // This will Do The Right Thing:
+  // ie add trailing '/' if needed, but
+  // leave it alone if pathname is more than just '/'
+  url = testURL.href;
   return url;
 }
 
@@ -80,7 +78,7 @@ function addToBlockList(e) {
     // otherwise silently do nothing
     // Save list also so it persists
     // Add trailing slash if domain only given and slash missing
-    //newUrl = addSlashIfNeeded(newUrl);
+    newUrl = addSlashIfNeeded(newUrl);
     blockList.push(newUrl);
     updateList(blockList);
     saveList();

@@ -1,3 +1,6 @@
+## v0.2.2 - 2018-07-28
+* Blocklist URLs get slash appended iff required
+
 ## v0.2.1 - 2018-07-25
 * Improve URL parsing logic
 
