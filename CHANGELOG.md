@@ -1,3 +1,9 @@
+## v0.2.4 - 2018-07-28
+* Options page now uses select multiple not textarea for list of sites
+
+## v0.2.3 - 2018-07-28
+* Blocklist handles 'www.' prepending sensibly
+
 ## v0.2.2 - 2018-07-28
 * Blocklist URLs get slash appended iff required
 

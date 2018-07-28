@@ -20,9 +20,18 @@ function saveList() {
 }
 
 // updateList
-// Updates the textarea with current block list
+// Updates the multi-select box with current block list
 function updateList(list) {
-  document.getElementById("blockitems").value = list.join('\n');
+  var selector = document.getElementById("blockitems");
+  while(selector.hasChildNodes()) {
+    selector.removeChild(selector.childNodes[0]);
+  }
+  for (var el of list) {
+    var line = document.createElement("option");
+    line.textContent = el;
+    line.value = el;
+    selector.appendChild(line);
+  }
 }
 
 // isUrlOk
