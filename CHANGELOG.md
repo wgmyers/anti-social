@@ -1,3 +1,6 @@
+## v0.3.0 - 2018-07-29
+* Sites can now be removed from blocklist
+
 ## v0.2.4 - 2018-07-28
 * Options page now uses select multiple not textarea for list of sites
 
