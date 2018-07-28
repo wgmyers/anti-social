@@ -64,6 +64,23 @@ function addSlashIfNeeded(url) {
   return url;
 }
 
+function addWwwIfNeeded(url) {
+  var testURL = new URL (url);
+
+  //console.log("addWwwIfNeeded", testURL);
+
+  // We only add www. to domains of form foo.bar,
+  // We leave domains of form foo.bar.baz alone.
+  if((testURL.hostname.slice(0,4) !== "www.") &&
+     (testURL.hostname.indexOf(".") === testURL.hostname.lastIndexOf("."))) {
+    testURL.hostname = "www." + testURL.hostname;
+    return testURL.href;
+    //console.log("Added www, got: ", testURL)
+  }
+
+  return;
+}
+
 // addToBlockList
 // Adds a URL to block list
 function addToBlockList(e) {
@@ -71,6 +88,7 @@ function addToBlockList(e) {
 
   // Get new url to add from form.
   var newUrl = document.getElementById("newsite").value;
+  var newUrlWithWWW;
 
   // Validate url
   if(isUrlOk(newUrl) === true) {
@@ -80,6 +98,11 @@ function addToBlockList(e) {
     // Add trailing slash if domain only given and slash missing
     newUrl = addSlashIfNeeded(newUrl);
     blockList.push(newUrl);
+    // Check to see if we also need to block with prepended 'www.'
+    newUrlWithWWW = addWwwIfNeeded(newUrl);
+    if(newUrlWithWWW && (!blockList.includes(newUrlWithWWW))) {
+      blockList.push(newUrlWithWWW);
+    }
     updateList(blockList);
     saveList();
   }
