@@ -64,10 +64,12 @@ function addSlashIfNeeded(url) {
   return url;
 }
 
+// addWwwIfNeeded
+// Takes candidate URL and checks it is of form foo.bar
+// If so, returns new URL of form www.foo.bar -
+// Otherwise returns undefined
 function addWwwIfNeeded(url) {
   var testURL = new URL (url);
-
-  //console.log("addWwwIfNeeded", testURL);
 
   // We only add www. to domains of form foo.bar,
   // We leave domains of form foo.bar.baz alone.
@@ -75,7 +77,6 @@ function addWwwIfNeeded(url) {
      (testURL.hostname.indexOf(".") === testURL.hostname.lastIndexOf("."))) {
     testURL.hostname = "www." + testURL.hostname;
     return testURL.href;
-    //console.log("Added www, got: ", testURL)
   }
 
   return;
@@ -86,7 +87,7 @@ function addWwwIfNeeded(url) {
 function addToBlockList(e) {
   e.preventDefault(); // prevent default form 'submit' action
 
-  // Get new url to add from form.
+  // Get new url/s to add from form.
   var newUrl = document.getElementById("newsite").value;
   var newUrlWithWWW;
 
