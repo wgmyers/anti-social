@@ -34,6 +34,35 @@ function updateList(list) {
   }
 }
 
+// removeSelected
+// Removes selected items from the blockList
+function removeSelected(e) {
+  e.preventDefault(); // prevent default form 'submit' action
+
+  var selector = document.getElementById("blockitems");
+
+  // Check we have nodes that might be selected (list could be empty)
+  if(selector.hasChildNodes()) {
+    var nodes = selector.childNodes;
+    //console.log("removeSelected found: ");
+    // For each selected node we:
+    // a) remove it from blocklist
+    // b) remove it from selector
+    // Finally, we save the new blocklist
+    // No need to call updateList as we call removeChild right here
+    for(var site of nodes) {
+      if(site.selected) {
+        //console.log(site.value);
+        var i = blockList.indexOf(site.value);
+        blockList.splice(i,1);
+        selector.removeChild(site);
+      }
+    }
+    saveList();
+  }
+
+}
+
 // isUrlOk
 // Validates candidate additions to blockList
 function isUrlOk(url) {
@@ -157,6 +186,9 @@ function restoreOptions() {
 
 // On load, populate block list with current list
 document.addEventListener("DOMContentLoaded", restoreOptions);
+
+// Enable Remove Selected button
+document.getElementById("blocked").addEventListener("submit", removeSelected);
 
 // Enable Restore Defaults button
 document.getElementById("reset").addEventListener("submit", restoreDefaults);
