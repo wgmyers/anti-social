@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "anti-social",
+    "description": "Name of the extension"
+  },
+
+  "extensionDescription": {
+    "message": "An extension aimed at increasing human happiness by blocking social media sites.",
+    "description": "Description of the extension"
+  }
+}

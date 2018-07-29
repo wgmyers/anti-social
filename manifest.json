@@ -1,8 +1,8 @@
 {
 
   "manifest_version": 2,
-  "name": "anti-social",
-  "version": "0.3.1",
+  "name": "__MSG_extensionName__",
+  "version": "0.3.2",
 
   "developer": {
     "name": "Wayne Myers",
@@ -15,7 +15,7 @@
     }
   },
 
-  "description": "An extension aimed at increasing human happiness by blocking social media sites.",
+  "description": "__MSG_extensionDescription__",
   "icons": {
     "48": "icons/no-entry-48.png",
     "96": "icons/no-entry-96.png"
@@ -39,6 +39,8 @@
 
   "web_accessible_resources": [
     "pages/blocked.html"
-  ]
+  ],
+
+  "default_locale": "en"
 
 }

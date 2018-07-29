@@ -4,5 +4,6 @@
 * Implement optional enable/disable blocking browser button (?)
 * Implement optional timeout on browser button (?)
 * Per-site blocking times(?)
+* Implement i18n
 * Decide on licensing
 * Figure out signing / publishing process
