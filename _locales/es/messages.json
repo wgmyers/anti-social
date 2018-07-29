@@ -1,0 +1,66 @@
+{
+  "extensionName": {
+    "message": "anti-social",
+    "description": "Name of the extension"
+  },
+
+  "extensionDescription": {
+    "message": "Una extensión destinada a aumentar la felicidad humana al bloquear los sitios de redes sociales.",
+    "description": "Description of the extension"
+  },
+
+  "blockedTitle": {
+    "message": "Bloqueado",
+    "description": "Title of blocked.html page"
+  },
+
+  "blockedHeading": {
+    "message": "La computadora dice que no",
+    "description": "Heading of blocked.html page"
+  },
+
+  "blockedParaOne": {
+    "message": "Esta página ha sido bloqueada.",
+    "description": "First line of blocked.html text"
+  },
+
+  "blockedParaTwo": {
+    "message": "De nada.",
+    "description": "Second line of blocked.html text"
+  },
+
+  "blockedParaThree": {
+    "message": "Besos,",
+    "description": "Third line of blocked.html text"
+  },
+
+  "optionsHeadingOne": {
+    "message": "Sitios bloqueados",
+    "description": "Heading for options page list of blocked sites"
+  },
+
+  "optionsSubmitOne": {
+    "message": "Eliminar selección",
+    "description": "Action button for options page list of blocked sites"
+  },
+
+  "optionsHeadingTwo": {
+    "message": "Agregar sitio al bloque",
+    "description": "Heading for options page new block site text entry"
+  },
+
+  "optionsSubmitTwo": {
+    "message": "Guardar",
+    "description": "Action button for options page new block site text entry"
+  },
+
+  "optionsHeadingThree": {
+    "message": "Restablecer los valores predeterminados",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsSubmitThree": {
+    "message": "Restablecer",
+    "description": "Text of options page reset button"
+  }
+}
