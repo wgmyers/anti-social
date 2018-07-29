@@ -1,3 +1,6 @@
+## v0.3.1 - 2018-07-29
+* Added applications and developer keys to manifest.json
+
 ## v0.3.0 - 2018-07-29
 * Sites can now be removed from blocklist
 

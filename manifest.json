@@ -2,7 +2,18 @@
 
   "manifest_version": 2,
   "name": "anti-social",
-  "version": "0.3.0",
+  "version": "0.3.1",
+
+  "developer": {
+    "name": "Wayne Myers",
+    "url": "https://github.com/wgmyers/anti-social"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "anti-social@conniptions.org"
+    }
+  },
 
   "description": "An extension aimed at increasing human happiness by blocking social media sites.",
   "icons": {
