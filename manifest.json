@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "0.3.2",
+  "version": "0.4.0",
 
   "developer": {
     "name": "Wayne Myers",
@@ -38,7 +38,8 @@
   },
 
   "web_accessible_resources": [
-    "pages/blocked.html"
+    "pages/blocked.html",
+    "pages/localise.js"
   ],
 
   "default_locale": "en"
