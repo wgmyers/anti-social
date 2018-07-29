@@ -7,5 +7,30 @@
   "extensionDescription": {
     "message": "An extension aimed at increasing human happiness by blocking social media sites.",
     "description": "Description of the extension"
+  },
+
+  "blockedTitle": {
+    "message": "Blocked",
+    "description": "Title of blocked.html page"
+  },
+
+  "blockedHeading": {
+    "message": "Computer says no",
+    "description": "Heading of blocked.html page"
+  },
+
+  "blockedParaOne": {
+    "message": "This page has been blocked.",
+    "description": "First line of blocked.html text"
+  },
+
+  "blockedParaTwo": {
+    "message": "You're welcome.",
+    "description": "Second line of blocked.html text"
+  },
+
+  "blockedParaThree": {
+    "message": "Love,",
+    "description": "Third line of blocked.html text"
   }
 }
