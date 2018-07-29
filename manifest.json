@@ -42,6 +42,6 @@
     "pages/localise.js"
   ],
 
-  "default_locale": "fr"
+  "default_locale": "en"
 
 }

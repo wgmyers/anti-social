@@ -1,5 +1,6 @@
 ## v0.4.0 - 2018-07-29
 * i18n now working so long as locale language pack is installed (I think).
+* Now with (dodgy) German translation
 
 ## v0.3.2 - 2018-07-29
 * Added i18n code for all user-visible text

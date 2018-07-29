@@ -5,62 +5,62 @@
   },
 
   "extensionDescription": {
-    "message": "Une extension visant à augmenter le bonheur humain en bloquant les sites de médias sociaux.",
+    "message": "Eine Erweiterung, die darauf abzielt, das menschliche Glück zu erhöhen, indem Social-Media-Sites blockiert werden.",
     "description": "Description of the extension"
   },
 
   "blockedTitle": {
-    "message": "Bloqué",
+    "message": "Blockiert",
     "description": "Title of blocked.html page"
   },
 
   "blockedHeading": {
-    "message": "L'ordinateur a dit non",
+    "message": "Computer sagt Nein",
     "description": "Heading of blocked.html page"
   },
 
   "blockedParaOne": {
-    "message": "Cette page a été bloquée.",
+    "message": "Diese Seite wurde blockiert.",
     "description": "First line of blocked.html text"
   },
 
   "blockedParaTwo": {
-    "message": "De rien.",
+    "message": "Kein Problem.",
     "description": "Second line of blocked.html text"
   },
 
   "blockedParaThree": {
-    "message": "Bises,",
+    "message": "Liebe Grüße,",
     "description": "Third line of blocked.html text"
   },
 
   "optionsHeadingOne": {
-    "message": "Sites bloqués",
+    "message": "Blockierte Websites",
     "description": "Heading for options page list of blocked sites"
   },
 
   "optionsSubmitOne": {
-    "message": "Enlever la sélection",
+    "message": "Entfernen ausgewählt",
     "description": "Action button for options page list of blocked sites"
   },
 
   "optionsHeadingTwo": {
-    "message": "Ajouter un site à bloquer",
+    "message": "Fügen Sie die zu blockierende Site hinzu",
     "description": "Heading for options page new block site text entry"
   },
 
   "optionsSubmitTwo": {
-    "message": "Enregistrer",
+    "message": "Speichern",
     "description": "Action button for options page new block site text entry"
   },
 
   "optionsHeadingThree": {
-    "message": "Rétablir défaut",
+    "message": "Auf Standardeinstellung zurücksetzen",
     "description": "Heading for options page reset button"
   },
 
   "optionsSubmitThree": {
-    "message": "Réinitialiser",
+    "message": "Zurücksetzen",
     "description": "Text of options page reset button"
   }
 }
