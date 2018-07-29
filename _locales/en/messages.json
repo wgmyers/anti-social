@@ -32,5 +32,35 @@
   "blockedParaThree": {
     "message": "Love,",
     "description": "Third line of blocked.html text"
+  },
+
+  "optionsHeadingOne": {
+    "message": "Blocked Sites",
+    "description": "Heading for options page list of blocked sites"
+  },
+
+  "optionsSubmitOne": {
+    "message": "Remove selected",
+    "description": "Action button for options page list of blocked sites"
+  },
+
+  "optionsHeadingTwo": {
+    "message": "Add Site To Block",
+    "description": "Heading for options page new block site text entry"
+  },
+
+  "optionsSubmitTwo": {
+    "message": "Save",
+    "description": "Action button for options page new block site text entry"
+  },
+
+  "optionsHeadingThree": {
+    "message": "Reset To Defaults",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsSubmitThree": {
+    "message": "Reset",
+    "description": "Text of options page reset button"
   }
 }
