@@ -1,0 +1,66 @@
+{
+  "extensionName": {
+    "message": "antisocial",
+    "description": "Name of the extension"
+  },
+
+  "extensionDescription": {
+    "message": "Une extension visant à augmenter le bonheur humain en bloquant les sites de médias sociaux.",
+    "description": "Description of the extension"
+  },
+
+  "blockedTitle": {
+    "message": "Bloqué",
+    "description": "Title of blocked.html page"
+  },
+
+  "blockedHeading": {
+    "message": "L'ordinateur a dit non",
+    "description": "Heading of blocked.html page"
+  },
+
+  "blockedParaOne": {
+    "message": "Cette page a été bloquée.",
+    "description": "First line of blocked.html text"
+  },
+
+  "blockedParaTwo": {
+    "message": "De rien.",
+    "description": "Second line of blocked.html text"
+  },
+
+  "blockedParaThree": {
+    "message": "Bises,",
+    "description": "Third line of blocked.html text"
+  },
+
+  "optionsHeadingOne": {
+    "message": "Sites bloqués",
+    "description": "Heading for options page list of blocked sites"
+  },
+
+  "optionsSubmitOne": {
+    "message": "Enlever la sélection",
+    "description": "Action button for options page list of blocked sites"
+  },
+
+  "optionsHeadingTwo": {
+    "message": "Ajouter un site à bloquer",
+    "description": "Heading for options page new block site text entry"
+  },
+
+  "optionsSubmitTwo": {
+    "message": "Enregistrer",
+    "description": "Action button for options page new block site text entry"
+  },
+
+  "optionsHeadingThree": {
+    "message": "Rétablir défaut",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsSubmitThree": {
+    "message": "Réinitialiser",
+    "description": "Text of options page reset button"
+  }
+}
