@@ -1,5 +1,6 @@
 ## v0.3.2 - 2018-07-29
 * Added i18n code for all user-visible text
+* Added (dodgy) French translation
 
 ## v0.3.1 - 2018-07-29
 * Added applications and developer keys to manifest.json
