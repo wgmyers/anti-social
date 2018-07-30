@@ -1,3 +1,6 @@
+## v0.4.2 - 2018-07-30
+* JSLinted all js; almost all warnings removed, some left in background.js
+
 ## v0.4.1 - 2018-07-30
 * Implemented non-functional browser popup button
 
