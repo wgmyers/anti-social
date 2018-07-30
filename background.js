@@ -3,8 +3,10 @@
 // Default block list
 // FIXME - this should live in an external defaults.json file
 //         as options.js needs it too
-var defaultList = ["https://facebook.com/", "https://www.facebook.com/",
-                   "https://twitter.com/", "https://www.twitter.com/"];
+var defaultList =
+    ["https://facebook.com/", "https://www.facebook.com/",
+    "https://twitter.com/", "https://www.twitter.com/"];
+
 var blockList;
 var patterns = [];
 
@@ -18,7 +20,7 @@ var blockerPage = browser.extension.getURL("pages/blocked.html");
 // constructed URLs without trailing slash alone.
 function createBlockList(list) {
     console.log("createBlockList");
-    patterns = list.map( function(v) {
+    patterns = list.map(function (v) {
         // Add wildcard to anything with trailing slash
         // Leave everything else alone.
         if (v.slice(-1) === "/") {
@@ -30,6 +32,15 @@ function createBlockList(list) {
     patterns.forEach(function (p) {
         console.log(p);
     });
+}
+
+// redirect
+// Performs the redirection to the blocker page
+function redirect(requestDetails) {
+    console.log("Redirecting: " + requestDetails.url);
+    return {
+        redirectUrl: blockerPage
+    };
 }
 
 // updateListener
@@ -59,7 +70,7 @@ function updateBlockList() {
         // populate patterns properly and update listener
         createBlockList(blockList);
         updateListener();
-  }
+    }
 
     function onError(error) {
         console.log(`updateBlockList error: ${error}`);
@@ -72,23 +83,14 @@ function updateBlockList() {
 // redirectAsync
 // Performs the redirect asynchronously
 // Not currently used, keeping it here in case it becomes useful
-function redirectAsync(requestDetails) {
-    console.log("Redirecting: " + requestDetails.url);
-    return new Promise((resolve, reject) => {
-        window.setTimeout(() => {
-            resolve({blockerPage});
-        }, 2000);
-    });
-}
-
-// redirect
-// Performs the redirection to the blocker page
-function redirect(requestDetails) {
-    console.log("Redirecting: " + requestDetails.url);
-    return {
-        redirectUrl: blockerPage
-    };
-}
+//function redirectAsync(requestDetails) {
+//    console.log("Redirecting: " + requestDetails.url);
+//    return new Promise((resolve, reject) => {
+//        window.setTimeout(() => {
+//            resolve({blockerPage});
+//        }, 2000);
+//    });
+//}
 
 // checkForUpdate
 // Callback for Storage listener -
