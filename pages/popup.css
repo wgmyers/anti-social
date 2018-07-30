@@ -1,0 +1,15 @@
+html, body {
+  width: 300px;
+}
+
+.choice, .status {
+  width: 100%;
+  padding: 4px;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.choice:hover {
+  background-color: #CFF2F2;
+}

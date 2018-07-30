@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "0.4.0",
+  "version": "0.4.1",
 
   "developer": {
     "name": "Wayne Myers",
@@ -35,6 +35,15 @@
   "options_ui": {
     "page": "pages/options.html",
     "browser_style": true
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_popup": "pages/popup.html",
+    "default_icon": {
+      "16": "icons/anti-social-button-16.png",
+      "32": "icons/anti-social-button-32.png"
+    }
   },
 
   "web_accessible_resources": [
