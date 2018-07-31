@@ -8,7 +8,6 @@ var defaultList =
     "https://twitter.com/", "https://www.twitter.com/"];
 
 var blockList;
-var listDisplay;
 
 // saveList
 // Saves the blocklist to storage
