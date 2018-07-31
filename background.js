@@ -10,8 +10,6 @@ var defaultList =
 var blockList;
 var patterns = [];
 
-var blockerPage = browser.extension.getURL("pages/blocked.html");
-
 // createBlockList
 // Our URL list needs wildcards added to it.
 // This function nukes current patterns content,
@@ -37,6 +35,9 @@ function createBlockList(list) {
 // redirect
 // Performs the redirection to the blocker page
 function redirect(requestDetails) {
+
+    var blockerPage = browser.extension.getURL("pages/blocked.html");
+
     console.log("Redirecting: " + requestDetails.url);
     return {
         redirectUrl: blockerPage
