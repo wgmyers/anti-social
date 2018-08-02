@@ -2,7 +2,7 @@ html, body {
   width: 300px;
 }
 
-.choice, .status {
+.choice {
   width: 100%;
   padding: 4px;
   font-size: 1.5em;
@@ -12,4 +12,12 @@ html, body {
 
 .choice:hover {
   background-color: #CFF2F2;
+}
+
+.status {
+  width: 100%;
+  padding: 4px;
+  font-size: 0.8em;
+  text-align: center;
+  text-style: italic;
 }

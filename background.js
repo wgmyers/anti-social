@@ -24,7 +24,11 @@ var blockFlag = function blockToggle() {
     var blockOn;
 
     function setBlockOnFromStorage(result) {
-        blockOn = result.blockOn || blockOnDefault;
+        blockOn = result.blockOnFlag.key;
+        console.log("background.js setBlockOnFromStorage found", blockOn);
+        if (blockOn === undefined) {
+            blockOn = blockOnDefault;
+        }
     }
 
     function onError(error) {
@@ -36,7 +40,7 @@ var blockFlag = function blockToggle() {
     }
 
     function loadValue() {
-        var getting = browser.storage.local.get("blockOn");
+        var getting = browser.storage.local.get("blockOnFlag");
         getting.then(setBlockOnFromStorage, onError);
     }
 
@@ -150,7 +154,7 @@ function checkForUpdate(changes, area) {
         if (Object.keys(changes).includes("blockList")) {
             updateBlockList();
         }
-        if (Object.keys(changes).includes("blockOn")) {
+        if (Object.keys(changes).includes("blockOnFlag")) {
             blockFlag.load();
         }
     }
