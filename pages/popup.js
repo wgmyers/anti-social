@@ -126,16 +126,19 @@ var toggler = function handleToggle() {
     function doToggle(flag) {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
-        if(flag) {
+        if(flag === true) {
             browser.alarms.create("toggleAlarm", {
                 delayInMinutes
             });
+            console.log("doToggle set alarm");
         } else {
             console.log("doToggle received false flag - alarm listener worked!");
         }
     }
 
     function handleAlarm(alarm) {
+        console.log("handleAlarm got:");
+        console.dir(alarm);
         if (alarm.name === "toggleAlarm") {
             doToggle(false);
         }
