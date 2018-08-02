@@ -10,6 +10,45 @@ var defaultList =
 var blockList;
 var patterns = [];
 
+
+// blockFlag
+// May be over-engineered.
+// Thing is, we need to allow popup.js, and possibly also options.js to alter
+// the value of blockOn in storage, but somehow access it here.
+// background.js does not need to alter the value, just read it,
+// so our two visible methods are:
+// blockFlag.get() - gets current value,
+// blockFlag.load() - reads current value from storage.
+var blockFlag = function blockToggle() {
+    var blockOnDefault = true;
+    var blockOn;
+
+    function setBlockOnFromStorage(result) {
+        blockOn = result.blockOn || blockOnDefault;
+    }
+
+    function onError(error) {
+        console.log(`blockToggle error: ${error}`);
+    }
+
+    function getBlockOn() {
+        return blockOn;
+    }
+
+    function loadValue() {
+        var getting = browser.storage.local.get("blockOn");
+        getting.then(setBlockOnFromStorage, onError);
+    }
+
+    loadValue();
+
+    return {
+        get: getBlockOn,
+        load: loadValue
+    };
+
+}();
+
 // createBlockList
 // Our URL list needs wildcards added to it.
 // This function nukes current patterns content,
@@ -38,10 +77,19 @@ function redirect(requestDetails) {
 
     var blockerPage = browser.extension.getURL("pages/blocked.html");
 
-    console.log("Redirecting: " + requestDetails.url);
-    return {
-        redirectUrl: blockerPage
-    };
+    // Only perform redirect if blocking actually switched on
+    if (blockFlag.get()) {
+        console.log("Redirecting: " + requestDetails.url);
+        return {
+            redirectUrl: blockerPage
+        };
+    } else {
+        // console.log("Redirect disabled.");
+        // Seems this is all we need to do.
+        // HOWEVER - all requests for foo.com/* still now get filtered through
+        // here - is this ok or is it worth trying to remove and replace the
+        // Listener. I don't know. For now, it Just Works.
+    }
 }
 
 // updateListener
@@ -96,10 +144,14 @@ function updateBlockList() {
 // checkForUpdate
 // Callback for Storage listener -
 // If it's blockList in local that has changed, update redirect
+// If the blockOn flag that has changed, load the new value.
 function checkForUpdate(changes, area) {
     if (area === "local") {
         if (Object.keys(changes).includes("blockList")) {
             updateBlockList();
+        }
+        if (Object.keys(changes).includes("blockOn")) {
+            blockFlag.load();
         }
     }
 }
