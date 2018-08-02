@@ -62,5 +62,30 @@
   "optionsSubmitThree": {
     "message": "Reset",
     "description": "Text of options page reset button"
+  },
+
+  "popupSettings": {
+    "message": "Settings",
+    "description": "Text of popup settings button"
+  },
+
+  "popupDisable": {
+    "message": "Disable",
+    "description": "Text of popup 'disable' button"
+  },
+
+  "popupEnable": {
+    "message": "Enable",
+    "description": "Text of popup 'enable' button"
+  },
+
+  "popupStatusDisabled": {
+    "message": "Status: Disabled",
+    "description": "Text of popup status-is-disabled message"
+  },
+
+  "popupStatusEnabled": {
+    "message": "Status: Enabled",
+    "description": "Text of popup status-is-enabled message"
   }
 }

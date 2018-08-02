@@ -84,10 +84,18 @@ function initPopup() {
         //console.log("initPopup thinks flag is: ", flag);
 
         // We need to add the status line
-        statusLine.innerHTML = "Status: " + (flag ? "Enabled" : "Disabled");
+        statusLine.innerHTML =
+            (flag ?
+                browser.i18n.getMessage("popupStatusEnabled") :
+                browser.i18n.getMessage("popupStatusDisabled")
+            );
 
         // We also need to toggle the 'Enable/Disable' button
-        toggleButton.innerHTML = (flag ? "Disable" : "Enable");
+        toggleButton.innerHTML =
+            (flag ?
+                browser.i18n.getMessage("popupDisable") :
+                browser.i18n.getMessage("popupEnable")
+            );
     }
 
     function onError(error) {
