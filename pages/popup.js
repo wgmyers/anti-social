@@ -110,20 +110,24 @@ function initPopup() {
 
 }
 
-// handleToggle
+// toggler
 // Implement toggling block on and off
-function handleToggle() {
-
-    var toggling;
+var toggler = function handleToggle() {
 
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
-    toggling = blockFlag.toggle()
-    toggling.then(initPopup, onError);
+    function doToggle() {
+        var toggling = blockFlag.toggle()
+        toggling.then(initPopup, onError);
+    }
 
-}
+    return {
+        toggle: doToggle
+    };
+
+}();
 
 // On load, populate popup HTML properly with current values
 document.addEventListener("DOMContentLoaded", initPopup);
@@ -148,7 +152,7 @@ document.addEventListener("click", function(e) {
             opening.then(onOpened, onError);
             break;
         case "toggle":
-            handleToggle();
+            toggler.toggle();
             break;
         default:
             // Do nothing
