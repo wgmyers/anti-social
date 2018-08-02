@@ -1,5 +1,6 @@
 ## v0.5.0 - 2018-08-02
 * Implemented enable/disable feature and show settings in popup
+* i18n-ified popup code
 
 ## v0.4.2 - 2018-07-30
 * JSLinted all js; only one formatting warning left to remove
