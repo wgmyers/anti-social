@@ -15,9 +15,10 @@ var blockFlag = function blockToggle() {
     var blockOn;
 
     function savedOK() {
-        console.log("New value of blockOn saved as: ", blockOn);
+        //console.log("New value of blockOn saved as: ", blockOn);
     }
 
+    // Return the promise so callers can access it
     function saveValue() {
         var blockOnFlag = {
             key: blockOn
@@ -28,14 +29,15 @@ var blockFlag = function blockToggle() {
         return getting;
     }
 
+    // Return the promise so callers can access it
     function toggleValue() {
         blockOn = !blockOn;
         return saveValue();
     }
 
     function setBlockOnFromStorage(result) {
-        console.log("setBlockOnFromStorage");
-        console.dir(result);
+        //console.log("setBlockOnFromStorage");
+        //console.dir(result);
         blockOn = result.blockOnFlag.key;
         if (blockOn === undefined) {
             blockOn = blockOnDefault;
@@ -46,6 +48,7 @@ var blockFlag = function blockToggle() {
         console.log(`blockToggle error: ${error}`);
     }
 
+    // Return the promise so callers can access it
     function loadValue() {
         var getting = browser.storage.local.get("blockOnFlag");
         getting.then(setBlockOnFromStorage, onError);
@@ -74,9 +77,11 @@ function initPopup() {
 
     function writeStatus(flag) {
 
+        // OK, because we only get here after blockFlag.load's promise
+        // has been fulfilled.
         var flag = blockFlag.get();
 
-        console.log("initPopup thinks flag is: ", flag);
+        //console.log("initPopup thinks flag is: ", flag);
 
         // We need to add the status line
         statusLine.innerHTML = "Status: " + (flag ? "Enabled" : "Disabled");
@@ -89,6 +94,7 @@ function initPopup() {
         console.log(`initPopup error: ${error}`);
     }
 
+    // We can't call writeStatus until the promise is fulfilled
     getting = blockFlag.load();
     getting.then(writeStatus, onError);
 
@@ -103,7 +109,7 @@ document.addEventListener("click", function(e) {
     }
 
     function onOpened() {
-        console.log(`Options page opened`);
+        //console.log(`Options page opened`);
     }
 
     function onError(error) {

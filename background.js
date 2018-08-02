@@ -25,7 +25,7 @@ var blockFlag = function blockToggle() {
 
     function setBlockOnFromStorage(result) {
         blockOn = result.blockOnFlag.key;
-        console.log("background.js setBlockOnFromStorage found", blockOn);
+        //console.log("background.js setBlockOnFromStorage found", blockOn);
         if (blockOn === undefined) {
             blockOn = blockOnDefault;
         }
