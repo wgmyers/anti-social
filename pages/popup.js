@@ -114,13 +114,31 @@ function initPopup() {
 // Implement toggling block on and off
 var toggler = function handleToggle() {
 
+    var timeToDeToggle = 1000 * 60 * 1;
+    var timeout;
+
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
-    function doToggle() {
+    // If called with true, sets a timeout
+    // Otherwise does not.
+    // This lets us toggle ourselves on and off automagically
+    // according to the value of timeToDeToggle
+    // BUT setTimeout does not work in extensions. Try again.
+    function doToggle(flag) {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
+        if(flag) {
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(function() { doToggle(false); }, timeToDeToggle);
+            console.log("doToggle setting timeout:");
+            console.dir(timeout);
+        } else {
+            console.log("doToggle received false flag - setTimeout worked!");
+        }
     }
 
     return {
@@ -152,7 +170,7 @@ document.addEventListener("click", function(e) {
             opening.then(onOpened, onError);
             break;
         case "toggle":
-            toggler.toggle();
+            toggler.toggle(true);
             break;
         default:
             // Do nothing
