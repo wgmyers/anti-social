@@ -115,34 +115,35 @@ function initPopup() {
 var toggler = function handleToggle() {
 
     var timeToDeToggle = 1000 * 60 * 1;
-    var timeout;
+    const delayInMinutes = 1;
 
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
-    // If called with true, sets a timeout
-    // Otherwise does not.
-    // This lets us toggle ourselves on and off automagically
-    // according to the value of timeToDeToggle
-    // BUT setTimeout does not work in extensions. Try again.
+    // If called with true, sets an alarm
+    // If called with false, notes the fact in console log and sets no alarm
     function doToggle(flag) {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
         if(flag) {
-            if (timeout) {
-                clearTimeout(timeout);
-            }
-            timeout = setTimeout(function() { doToggle(false); }, timeToDeToggle);
-            console.log("doToggle setting timeout:");
-            console.dir(timeout);
+            browser.alarms.create("toggleAlarm", {
+                delayInMinutes
+            });
         } else {
-            console.log("doToggle received false flag - setTimeout worked!");
+            console.log("doToggle received false flag - alarm listener worked!");
+        }
+    }
+
+    function handleAlarm(alarm) {
+        if (alarm.name === "toggleAlarm") {
+            doToggle(false);
         }
     }
 
     return {
-        toggle: doToggle
+        toggle: doToggle,
+        handleAlarm: handleAlarm
     };
 
 }();
@@ -178,3 +179,6 @@ document.addEventListener("click", function(e) {
     }
 
 });
+
+// Listener for the toggle alarm
+browser.alarms.onAlarm.addListener(toggler.handleAlarm);
