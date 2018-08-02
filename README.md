@@ -13,7 +13,11 @@ Yes. A lot like [Block Site](https://addons.mozilla.org/en-US/firefox/addon/bloc
 
 ### And that other one you found last week but can't find now
 
-Yes. That was the very phone-homey one. I'll link to it here when I find it again.
+Yes. That was the very phone-homey one. ~~I'll link to it here when I find it again.~~
+
+UPDATE: Found it, it is/was (confusingly) also called 'BlockSite' (no space) and is/was not just phone-homey but also generally annoying in other ways to the extent of being widely regarded as malware. It has now been withdrawn from the Firefox extension repository, from the Chrome Store and from Google Play. Not linking to it. 
+
+anti-social will *never* phone home.
 
 ### And SelfControl
 
