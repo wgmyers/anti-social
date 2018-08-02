@@ -69,6 +69,8 @@ var blockFlag = function blockToggle() {
 
 }();
 
+// initPopup
+// Populate the popup window
 function initPopup() {
 
     var getting;
@@ -108,9 +110,25 @@ function initPopup() {
 
 }
 
-// On load, populate popup HTML properly with curreent values
+// handleToggle
+// Implement toggling block on and off
+function handleToggle() {
+
+    var toggling;
+
+    function onError(error) {
+        console.log(`Error: ${error}`);
+    }
+
+    toggling = blockFlag.toggle()
+    toggling.then(initPopup, onError);
+
+}
+
+// On load, populate popup HTML properly with current values
 document.addEventListener("DOMContentLoaded", initPopup);
 
+// Listener handling button clicks on the popup window itself
 document.addEventListener("click", function(e) {
     if (!e.target.classList.contains("choice")) {
         return;
@@ -130,8 +148,7 @@ document.addEventListener("click", function(e) {
             opening.then(onOpened, onError);
             break;
         case "toggle":
-            var toggling = blockFlag.toggle()
-            toggling.then(initPopup, onError);
+            handleToggle();
             break;
         default:
             // Do nothing
