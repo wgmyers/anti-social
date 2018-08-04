@@ -195,14 +195,14 @@ var toggler = function toggler() {
             "message": browser.i18n.getMessage("notificationMessage")
         });
 
-        browser.browserAction.onClicked.addListener(()=> {
-          var clearing = browser.notifications.clear(blockNotification);
-          clearing.then(() => {
-            console.log("Cleared notification");
-          });
-        });
+        //browser.browserAction.onClicked.addListener(()=> {
+        //  var clearing = browser.notifications.clear(blockNotification);
+        //  clearing.then(() => {
+        //    console.log("Cleared notification");
+        //  });
+        //});
 
-        console.log("sendNotification: trying to notify user.");
+        //console.log("sendNotification: trying to notify user.");
     }
 
     // Timeout timed out - toggle blocker back on.
@@ -228,9 +228,9 @@ var toggler = function toggler() {
 // The message will be 'doToggle', so we set an alarm to
 // undo the toggle in n minutes time.
 function handleMessage(request) {
-    console.log("handleMessage: ");
+    //console.log("handleMessage: ");
     if(request.message === "doToggle") {
-        console.log("background.js got doToggle message from popup.js");
+        //console.log("background.js got doToggle message from popup.js");
         toggler.setAlarm();
     } else {
         console.log("background.js got unexpected message")
