@@ -87,5 +87,11 @@
   "popupStatusEnabled": {
     "message": "Status: Enabled",
     "description": "Text of popup status-is-enabled message"
+},
+
+  "notificationMessage": {
+    "message": "Site blocking is back ON",
+    "description": "Text of blocking is back on notification"
   }
+
 }

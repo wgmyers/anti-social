@@ -23,6 +23,7 @@
 
   "permissions": [
     "alarms",
+    "notifications",
     "storage",
     "webRequest",
     "webRequestBlocking",

@@ -114,39 +114,45 @@ function initPopup() {
 // Implement toggling block on and off
 var toggler = function handleToggle() {
 
-    var timeToDeToggle = 1000 * 60 * 1;
+    var message;
     const delayInMinutes = 1;
 
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
-    // If called with true, sets an alarm
-    // If called with false, notes the fact in console log and sets no alarm
+    function sendMsgToBackground() {
+        var message = browser.runtime.sendMessage({
+            "message": "doToggle"
+        });
+    }
+
+    // If called with true, send a message to the background script
     function doToggle(flag) {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
         if(flag === true) {
-            browser.alarms.create("toggleAlarm", {
-                delayInMinutes
-            });
-            console.log("doToggle set alarm");
+            //browser.alarms.create("toggleAlarm", {
+            //    delayInMinutes
+            //});
+            //console.log("doToggle set alarm");
+            sendMsgToBackground();
         } else {
-            console.log("doToggle received false flag - alarm listener worked!");
+            console.log("doToggle received false.");
         }
     }
 
-    function handleAlarm(alarm) {
-        console.log("handleAlarm got:");
-        console.dir(alarm);
-        if (alarm.name === "toggleAlarm") {
-            doToggle(false);
-        }
-    }
+//    function handleAlarm(alarm) {
+//        console.log("handleAlarm got:");
+//        console.dir(alarm);
+//        if (alarm.name === "toggleAlarm") {
+//            doToggle(false);
+//        }
+//    }
 
     return {
-        toggle: doToggle,
-        handleAlarm: handleAlarm
+        toggle: doToggle
+//        handleAlarm: handleAlarm
     };
 
 }();
@@ -183,5 +189,25 @@ document.addEventListener("click", function(e) {
 
 });
 
-// Listener for the toggle alarm
-browser.alarms.onAlarm.addListener(toggler.handleAlarm);
+// checkForUpdate
+// Callback for Storage listener -
+// In the event that the background alarm triggers while the popup is open,
+// we need to handle it and update ourselves.
+function checkForUpdate(changes, area) {
+
+    var promise;
+
+    function onError(error) {
+        console.log(`checkForUpdate error: ${error}`);
+    }
+
+    if (area === "local") {
+        if (Object.keys(changes).includes("blockOnFlag")) {
+            promise = blockFlag.load();
+            promise.then(initPopup, onError)
+        }
+    }
+}
+
+// Listen for changes in storage
+browser.storage.onChanged.addListener(checkForUpdate);

@@ -23,6 +23,27 @@ var blockFlag = function blockToggle() {
     var blockOnDefault = true;
     var blockOn;
 
+    function savedOK() {
+        //console.log("New value of blockOn saved as: ", blockOn);
+    }
+
+    // Return the promise so callers can access it
+    function saveValue() {
+        var blockOnFlag = {
+            key: blockOn
+        };
+        var getting = browser.storage.local.set({
+            blockOnFlag
+        }).then(savedOK, onError);
+        return getting;
+    }
+
+    // Return the promise so callers can access it
+    function toggleValue() {
+        blockOn = !blockOn;
+        return saveValue();
+    }
+
     function setBlockOnFromStorage(result) {
         blockOn = result.blockOnFlag.key;
         //console.log("background.js setBlockOnFromStorage found", blockOn);
@@ -48,7 +69,8 @@ var blockFlag = function blockToggle() {
 
     return {
         get: getBlockOn,
-        load: loadValue
+        load: loadValue,
+        toggle: toggleValue
     };
 
 }();
@@ -145,6 +167,77 @@ function updateBlockList() {
 //    });
 //}
 
+//
+var toggler = function toggler() {
+
+    var promise;
+    const delayInMinutes = 1;
+
+    function onError(error) {
+        console.log(`toggler error: ${error}`);
+    }
+
+    // Set timeout for blocker toggle
+    function setAlarm() {
+        browser.alarms.create("toggleAlarm", {
+            delayInMinutes
+        });
+        console.log("toggler.setAlarm() set alarm");
+    }
+
+    function sendNotification() {
+        var blockNotification = "block-notification";
+
+        browser.notifications.create(blockNotification, {
+            "type": "basic",
+            "iconUrl": browser.extension.getURL("icons/no-entry-96.png"),
+            "title": browser.i18n.getMessage("extensionName"),
+            "message": browser.i18n.getMessage("notificationMessage")
+        });
+
+        browser.browserAction.onClicked.addListener(()=> {
+          var clearing = browser.notifications.clear(blockNotification);
+          clearing.then(() => {
+            console.log("Cleared notification");
+          });
+        });
+
+        console.log("sendNotification: trying to notify user.");
+    }
+
+    // Timeout timed out - toggle blocker back on.
+    // Don't auto toggle back off if we are in weird state.
+    function handleAlarm() {
+        if(blockFlag.get() === false) {
+            promise = blockFlag.toggle();
+            promise.then(sendNotification, onError);
+        } else {
+            console.log("handleAlarm - block already on - not auto unblocking.");
+        }
+    }
+
+    return {
+        setAlarm: setAlarm,
+        handleAlarm: handleAlarm
+    };
+
+}();
+
+// handleMessage
+// Listens for messages from popup.js
+// The message will be 'doToggle', so we set an alarm to
+// undo the toggle in n minutes time.
+function handleMessage(request) {
+    console.log("handleMessage: ");
+    if(request.message === "doToggle") {
+        console.log("background.js got doToggle message from popup.js");
+        toggler.setAlarm();
+    } else {
+        console.log("background.js got unexpected message")
+        console.log(request.message);
+    }
+}
+
 // checkForUpdate
 // Callback for Storage listener -
 // If it's blockList in local that has changed, update redirect
@@ -165,3 +258,9 @@ updateBlockList();
 
 // Listen for changes in storage
 browser.storage.onChanged.addListener(checkForUpdate);
+
+// Listen for messages from popup.js
+browser.runtime.onMessage.addListener(handleMessage);
+
+// Listener for the toggle alarm
+browser.alarms.onAlarm.addListener(toggler.handleAlarm);
