@@ -1,3 +1,6 @@
+## v0.5.1 - 2018-08-05
+* Timeout on blocking toggle now implemented
+
 ## v0.5.0 - 2018-08-02
 * Implemented enable/disable feature and show settings in popup
 * i18n-ified popup code
