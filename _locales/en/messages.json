@@ -87,11 +87,21 @@
   "popupStatusEnabled": {
     "message": "Blocking is ON",
     "description": "Text of popup status-is-enabled message"
-},
+  },
 
   "notificationMessage": {
     "message": "Site blocking is back ON\n\nPlease close any blocked tabs.",
     "description": "Text of blocking is back on notification"
+  },
+
+  "popupStatusNever": {
+    "message": "Never",
+    "description": "Text for situation where snooze has never been used"
+  },
+
+  "popupStatusLastUsed": {
+    "message": "Last used: ",
+    "description": "Text used before last used time in popup"
   }
 
 }

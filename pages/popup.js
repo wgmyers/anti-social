@@ -152,14 +152,16 @@ function initPopup() {
         var dStr;
 
         if(d === undefined) {
-            dStr = "Never";
+            dStr = browser.i18n.getMessage("popupStatusNever");
         } else {
             dStr = new Date(d).toString();
             dStr = dStr.replace(/(\d\d\:\d\d\:\d\d).*$/, "$1"); // lose TZ
         }
 
         // We need to add the status line
-        statusLine.innerHTML = "Last used: " + dStr + "<hr>" +
+        statusLine.innerHTML =
+            browser.i18n.getMessage("popupStatusLastUsed") +
+            dStr + "<hr>" +
             (flag ?
                 browser.i18n.getMessage("popupStatusEnabled") :
                 browser.i18n.getMessage("popupStatusDisabled")
