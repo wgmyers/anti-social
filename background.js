@@ -12,13 +12,11 @@ var patterns = [];
 
 
 // blockFlag
-// May be over-engineered.
-// Thing is, we need to allow popup.js, and possibly also options.js to alter
-// the value of blockOn in storage, but somehow access it here.
-// background.js does not need to alter the value, just read it,
-// so our two visible methods are:
+// Annoyingly, more-or-less-the-same code lives in popup.js, but I don't
+// yet know how to implement DRY properly around here.
 // blockFlag.get() - gets current value,
 // blockFlag.load() - reads current value from storage.
+// blockFlag.toggle() - toggles blocking
 var blockFlag = function blockToggle() {
     var blockOnDefault = true;
     var blockOn;
@@ -167,7 +165,8 @@ function updateBlockList() {
 //    });
 //}
 
-//
+// toggler
+// Handles the auto-timeout of block toggling.
 var toggler = function toggler() {
 
     var promise;
