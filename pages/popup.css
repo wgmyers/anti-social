@@ -1,23 +1,31 @@
 html, body {
-  width: 300px;
+    width: 300px;
 }
 
 .choice {
-  width: 100%;
-  padding: 4px;
-  font-size: 1.5em;
-  text-align: center;
-  cursor: pointer;
+    width: 100%;
+    padding: 4px;
+    font-size: 1.5em;
+    text-align: center;
+    cursor: pointer;
 }
 
 .choice:hover {
-  background-color: #CFF2F2;
+    background-color: #CFF2F2;
+}
+
+.disabled {
+    width: 100%;
+    padding: 4px;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #C0C0C0;
 }
 
 .status {
-  width: 100%;
-  padding: 4px;
-  font-size: 0.8em;
-  text-align: center;
-  text-style: italic;
+    width: 100%;
+    padding: 4px;
+    font-size: 0.8em;
+    text-align: center;
+    text-style: italic;
 }

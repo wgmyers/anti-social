@@ -25,12 +25,16 @@ Sort of. Not really. [SelfControl](https://selfcontrolapp.com/) does the same so
 
 ### What's different about anti-social, then?
 
-Not a huge amount just yet to be honest. Currently, anti-social lets you block either specific pages, directories, or whole domains. It also has a button that lets you toggle it on or off at will; if you've turned blocking off that toggle times out after a set time, so blocking automatically comes back on. It's pre-release, so there's no package or licence yet. When it's ready for release there will be some kind of FLOSS licence for sure.
+* You can block specific pages, directories, or whole domains.
+* You turn blocking off with a 'snooze' button in the popup menu, but it comes back on again after five minutes.
+* If you use the 'snooze' button, you can't use it again for the next hour.
+
+anti-social is still in the pre-release stage, so there's no package or licence yet. When it's ready for release there will be some kind of FLOSS licence for sure.
 
 ### Why not release it already?
 
-There are two planned core features I haven't added yet:
-* Toggle timeout: length should be settable by the user. Also, use of that toggle button should be restricted so you can only use it once every so often. You'll be able to choose how often that is.
+There are core features I haven't added yet:
+* Toggle timeout: length should be settable by the user, and so should the length of time before you are allowed to use it again.
 * Automatic toggles: so you can allow yourself say one or two hours of social media per day at set times without faffing about with toggle buttons.
 
 When I've implemented those, I'll package it up for release.

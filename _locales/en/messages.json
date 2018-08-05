@@ -70,22 +70,22 @@
   },
 
   "popupDisable": {
-    "message": "Disable",
+    "message": "Snooze",
     "description": "Text of popup 'disable' button"
   },
 
   "popupEnable": {
-    "message": "Enable",
+    "message": "Snoozing...",
     "description": "Text of popup 'enable' button"
   },
 
   "popupStatusDisabled": {
-    "message": "Status: Disabled",
+    "message": "Blocking is OFF",
     "description": "Text of popup status-is-disabled message"
   },
 
   "popupStatusEnabled": {
-    "message": "Status: Enabled",
+    "message": "Blocking is ON",
     "description": "Text of popup status-is-enabled message"
 },
 

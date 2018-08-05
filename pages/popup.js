@@ -67,6 +67,74 @@ var blockFlag = function blockToggle() {
 
 }();
 
+// lastToggle
+// Only allows user to toggle blocking once every n hours
+var lastToggle = function lastToggle() {
+    var lastUsedToggle;
+    const disableTimeout = 1000 * 60 * 60; // 2mins for debug / 1 hour normally
+
+    function onError(error) {
+        console.log(`disabler error: ${error}`);
+    }
+
+    function saveLastUsedToggle(timestamp) {
+        var lastToggleTime;
+        var getting;
+
+        // Check we have really been given a Date object
+        //if (timestamp instanceof Date === false) {
+        //    return undefined;
+        //}
+
+        // Ok, save it, return the promise
+        lastToggleTime = {
+            key: timestamp
+        };
+        getting = browser.storage.local.set({
+            lastToggleTime
+        }).then(savedOK, onError);
+        return getting;
+    }
+
+    function setLastUsedToggle(result) {
+        lastUsedToggle = result.lastToggleTime.key;
+        if (lastUsedToggle === undefined) {
+            lastUsedToggle = 0;
+        }
+    }
+
+    function loadLastUsedToggle() {
+        var getting = browser.storage.local.get("lastToggleTime");
+        getting.then(setLastUsedToggle, onError);
+        return getting;
+    }
+
+    function okToToggle() {
+        var now = Date.now();
+        if(!lastUsedToggle) {
+            return true;
+        }
+        if((now - lastUsedToggle) > disableTimeout) {
+            return true;
+        }
+        return false;
+    }
+
+    function getLastToggle() {
+        return lastUsedToggle;
+    }
+
+    loadLastUsedToggle();
+
+    return {
+        ok: okToToggle,
+        load: loadLastUsedToggle,
+        save: saveLastUsedToggle,
+        get: getLastToggle
+    }
+
+}();
+
 // initPopup
 // Populate the popup window
 function initPopup() {
@@ -75,22 +143,40 @@ function initPopup() {
     var statusLine = document.getElementById("status");
     var toggleButton = document.getElementById("toggle");
 
-    function writeStatus(flag) {
+    function writeStatus() {
 
         // OK, because we only get here after blockFlag.load's promise
         // has been fulfilled.
         var flag = blockFlag.get();
+        var d = lastToggle.get();
+        var dStr;
+
+        if(d === undefined) {
+            dStr = "Never";
+        } else {
+            dStr = new Date(d).toString();
+        }
+
+        console.log("writeStatus");
+        console.log(d);
+        console.log(dStr);
 
         //console.log("initPopup thinks flag is: ", flag);
 
         // We need to add the status line
-        statusLine.innerHTML =
+        statusLine.innerHTML = "Last used: " + dStr + "<hr>" +
             (flag ?
                 browser.i18n.getMessage("popupStatusEnabled") :
                 browser.i18n.getMessage("popupStatusDisabled")
             );
 
         // We also need to toggle the 'Enable/Disable' button
+
+        // Grey it out if blockFlag is false
+        if(flag === false || !lastToggle.ok()) {
+            toggleButton.className = "disabled";
+        }
+
         toggleButton.innerHTML =
             (flag ?
                 browser.i18n.getMessage("popupDisable") :
@@ -124,12 +210,15 @@ var toggler = function handleToggle() {
         });
     }
 
-    // If called with true, send a message to the background script
+    // If called with true, blocking is on.
+    // Send a message to the background script and set lastToggleTime
+    // Otherwise, blocking is off - just toggle back on
     function doToggle(flag) {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
         if(flag === true) {
             sendMsgToBackground();
+            lastToggle.save(Date.now());
         } else {
             console.log("doToggle received false.");
         }
@@ -164,7 +253,7 @@ document.addEventListener("click", function(e) {
             opening.then(onOpened, onError);
             break;
         case "toggle":
-            toggler.toggle(true);
+            toggler.toggle(blockFlag.get());
             break;
         default:
             // Do nothing
