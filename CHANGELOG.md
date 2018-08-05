@@ -1,3 +1,8 @@
+## v0.5.2 - 2018-08-05
+* Blocking toggle now called 'snooze'
+* Snooze timeout implemented - can only snooze 5mins each hour
+* 'Unsnooze' removed as spurious, since we auto-unsnooze.
+
 ## v0.5.1 - 2018-08-05
 * Timeout on blocking toggle now implemented
 
