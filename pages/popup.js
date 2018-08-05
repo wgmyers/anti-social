@@ -155,13 +155,8 @@ function initPopup() {
             dStr = "Never";
         } else {
             dStr = new Date(d).toString();
+            dStr = dStr.replace(/(\d\d\:\d\d\:\d\d).*$/, "$1"); // lose TZ
         }
-
-        console.log("writeStatus");
-        console.log(d);
-        console.log(dStr);
-
-        //console.log("initPopup thinks flag is: ", flag);
 
         // We need to add the status line
         statusLine.innerHTML = "Last used: " + dStr + "<hr>" +
@@ -170,7 +165,7 @@ function initPopup() {
                 browser.i18n.getMessage("popupStatusDisabled")
             );
 
-        // We also need to toggle the 'Enable/Disable' button
+        // We also need to toggle the 'Snooze' button
 
         // Grey it out if blockFlag is false
         if(flag === false || !lastToggle.ok()) {
