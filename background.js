@@ -171,7 +171,7 @@ function updateBlockList() {
 var toggler = function toggler() {
 
     var promise;
-    const delayInMinutes = 1;
+    const delayInMinutes = 5;
 
     function onError(error) {
         console.log(`toggler error: ${error}`);
