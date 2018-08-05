@@ -5,8 +5,6 @@
 // Definitely unhappy with having the same code copypasta'ed from background.js
 // but don't yet know how to share a function between two different parts of
 // a webextension in a sensible way.
-// Here we need to expose (and implement) an extra method that implements the
-// actual toggling:
 // blockFlag.toggle() - gets current value, flips it, stores new value
 // blockFlag.get() - gets current value,
 // blockFlag.load() - reads current value from storage.
@@ -115,7 +113,6 @@ function initPopup() {
 var toggler = function handleToggle() {
 
     var message;
-    const delayInMinutes = 1;
 
     function onError(error) {
         console.log(`Error: ${error}`);
@@ -132,27 +129,14 @@ var toggler = function handleToggle() {
         var toggling = blockFlag.toggle()
         toggling.then(initPopup, onError);
         if(flag === true) {
-            //browser.alarms.create("toggleAlarm", {
-            //    delayInMinutes
-            //});
-            //console.log("doToggle set alarm");
             sendMsgToBackground();
         } else {
             console.log("doToggle received false.");
         }
     }
 
-//    function handleAlarm(alarm) {
-//        console.log("handleAlarm got:");
-//        console.dir(alarm);
-//        if (alarm.name === "toggleAlarm") {
-//            doToggle(false);
-//        }
-//    }
-
     return {
         toggle: doToggle
-//        handleAlarm: handleAlarm
     };
 
 }();
