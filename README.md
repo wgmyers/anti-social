@@ -34,8 +34,8 @@ anti-social is still in the pre-release stage, so there's no package or licence 
 ### Why not release it already?
 
 There are core features I haven't added yet:
-* Toggle timeout: length should be settable by the user, and so should the length of time before you are allowed to use it again.
-* Automatic toggles: so you can allow yourself say one or two hours of social media per day at set times without faffing about with toggle buttons.
+* Snooze timeout: length should be settable by the user, and so should the length of time before you are allowed to use it again.
+* Automatic toggles: so you can allow yourself say one or two hours of social media per day at set times without faffing about with snooze buttons.
 
 When I've implemented those, I'll package it up for release.
 
