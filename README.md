@@ -26,7 +26,7 @@ Sort of. Not really. [SelfControl](https://selfcontrolapp.com/) does the same so
 ### What's different about anti-social, then?
 
 * You can block specific pages, directories, or whole domains.
-* You turn blocking off with a 'snooze' button in the popup menu, but it comes back on again after five minutes.
+* You can turn blocking off with a 'snooze' button in the popup menu, but it comes back on again after five minutes.
 * If you use the 'snooze' button, you can't use it again for the next hour.
 
 anti-social is still in the pre-release stage, so there's no package or licence yet. When it's ready for release there will be some kind of FLOSS licence for sure.
