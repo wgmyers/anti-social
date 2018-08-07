@@ -54,6 +54,11 @@
     "description": "Action button for options page new block site text entry"
   },
 
+  "optionsResetWarning": {
+    "message": "WARNING: this option will reset all settings to defaults and cannot be undone.",
+    "description": "Warning for Defaults Reset button."
+  },
+
   "optionsHeadingThree": {
     "message": "Reset To Defaults",
     "description": "Heading for options page reset button"

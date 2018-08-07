@@ -8,3 +8,13 @@ select {
     background-color: #f9f9fa;
     resize: none;
 }
+
+p.warning {
+    font-weight: bold;
+}
+
+hr {
+    width: 100%;
+    border-width: 1px;
+    border-color: #0c0c0d;
+}
