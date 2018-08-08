@@ -1,3 +1,7 @@
+##v0.5.3 - 2018-08-08
+* options.js now stores site list properly
+* options.html updated with warning on 'reset to defaults' button
+
 ## v0.5.2 - 2018-08-05
 * Blocking toggle now called 'snooze'
 * Snooze timeout implemented - can only snooze 5mins each hour

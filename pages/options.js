@@ -12,8 +12,11 @@ var blockList;
 // saveList
 // Saves the blocklist to storage
 function saveList() {
+    var blockSites = {
+        sites: blockList
+    };
     browser.storage.local.set({
-        blockList
+        blockSites
     });
     console.log("saveList");
     blockList.forEach(function(el) {
@@ -167,7 +170,7 @@ function restoreOptions() {
     function setCurrentBlockList(result) {
         // If no result was returned from storage.local.get,
         // set blockList to the defaultList
-        blockList = result.blockList || defaultList.slice();
+        blockList = result.sites || defaultList.slice();
         // populate textarea
         updateList(blockList);
     }
@@ -176,7 +179,7 @@ function restoreOptions() {
         console.log(`Error: ${error}`);
     }
 
-    var getting = browser.storage.local.get("blockList");
+    var getting = browser.storage.local.get("blockSites");
     getting.then(setCurrentBlockList, onError);
 }
 
