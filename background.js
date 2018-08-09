@@ -185,13 +185,15 @@ var toggler = function toggler() {
 
     // Set timeout for blocker toggle
     function setAlarm() {
+        const delayInMinutes = snoozeMins;
         // snoozeMins may be 0, in which case don't bother
-        console.log("setAlarm got", snoozeMins, " minutes.")
+        console.log("setAlarm sees snoozeMins as '" + snoozeMins + "' minutes.");
+        console.log("snoozeMins is a " + typeof snoozeMins);
         if (snoozeMins === 0) {
             return;
         }
         browser.alarms.create("toggleAlarm", {
-            snoozeMins
+            delayInMinutes
         });
         console.log("toggler.setAlarm() set alarm");
     }
@@ -230,7 +232,7 @@ var toggler = function toggler() {
     // setSnoozeMins
     // Set the number of minutes to snooze
     function setSnoozeMins(mins) {
-        snoozeMins = mins;
+        snoozeMins = parseInt(mins);
     }
 
     return {
