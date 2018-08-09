@@ -149,7 +149,7 @@ function updateBlockList() {
         console.log(`updateBlockList error: ${error}`);
     }
 
-    var getting = browser.storage.local.get("blockList");
+    var getting = browser.storage.local.get("blockSites");
     getting.then(setCurrentBlockList, onError);
 }
 
@@ -243,7 +243,7 @@ function handleMessage(request) {
 // If the blockOn flag that has changed, load the new value.
 function checkForUpdate(changes, area) {
     if (area === "local") {
-        if (Object.keys(changes).includes("blockList")) {
+        if (Object.keys(changes).includes("blockSites")) {
             updateBlockList();
         }
         if (Object.keys(changes).includes("blockOnFlag")) {

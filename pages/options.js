@@ -1,11 +1,15 @@
 "use strict";
 
-// Default block list
+// Default settings object
 // FIXME - this should live in an external defaults.json file
-//         as background.js needs it too
-var defaultList =
-    ["https://facebook.com/", "https://www.facebook.com/",
-    "https://twitter.com/", "https://www.twitter.com/"];
+//         as background.js, popup.js need it too
+var defaults = {
+    blockList:
+        ["https://facebook.com/", "https://www.facebook.com/",
+        "https://twitter.com/", "https://www.twitter.com/"],
+    snoozeMins: 5,
+    snoozeTimeoutHours: 1
+};
 
 var blockList;
 
@@ -157,7 +161,7 @@ function addToBlockList(e) {
 // Restores the default block list
 function restoreDefaults(e) {
     e.preventDefault(); // prevent default form 'submit' action
-    blockList = defaultList.slice();
+    blockList = defaults.blockList.slice();
     updateList(blockList);
     saveList();
 }
@@ -169,8 +173,8 @@ function restoreOptions() {
 
     function setCurrentBlockList(result) {
         // If no result was returned from storage.local.get,
-        // set blockList to the defaultList
-        blockList = result.sites || defaultList.slice();
+        // set blockList to the defaults.blockList
+        blockList = result.sites || defaults.blockList.slice();
         // populate textarea
         updateList(blockList);
     }
