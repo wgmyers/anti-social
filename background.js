@@ -137,9 +137,10 @@ function updateListener() {
 function updateBlockList() {
 
     function setCurrentBlockList(result) {
+        console.log("setCurrentBlockList", result);
         // If no result was returned from storage.local.get,
         // set blockList to the defaultList
-        blockList = result.blockList || defaultList.slice();
+        blockList = result.blockSites.sites || defaultList.slice();
         // populate patterns properly and update listener
         createBlockList(blockList);
         updateListener();
