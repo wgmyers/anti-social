@@ -71,7 +71,7 @@ var blockFlag = function blockToggle() {
 // Only allows user to toggle blocking once every n hours
 var lastToggle = function lastToggle() {
     var lastUsedToggle;
-    const disableTimeout = 1000 * 60 * 60; // 2mins for debug / 1 hour normally
+    var disableTimeout = 1000 * 60 * 60; // default to 1 hour
 
     function onError(error) {
         console.log(`disabler error: ${error}`);
@@ -124,13 +124,25 @@ var lastToggle = function lastToggle() {
         return lastUsedToggle;
     }
 
+    function setDisableTimeout(result) {
+        var hours = result.settings.snoozeTimeoutHours;
+        disableTimeout = 1000 * 60 * 60 * hours;
+    }
+
+    function loadDisableTimeout() {
+        var getting = browser.storage.local.get("settings");
+        getting.then(setDisableTimeout, onError);
+    }
+
     loadLastUsedToggle();
+    loadDisableTimeout();
 
     return {
         ok: okToToggle,
         load: loadLastUsedToggle,
         save: saveLastUsedToggle,
-        get: getLastToggle
+        get: getLastToggle,
+        loadDisableTimeout: loadDisableTimeout
     }
 
 }();
@@ -275,6 +287,9 @@ function checkForUpdate(changes, area) {
         if (Object.keys(changes).includes("blockOnFlag")) {
             promise = blockFlag.load();
             promise.then(initPopup, onError)
+        }
+        if (Object.keys(changes).includes("settings")) {
+            toggler.loadDisableTimeout();
         }
     }
 }

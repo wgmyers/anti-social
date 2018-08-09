@@ -1,8 +1,6 @@
 ## TODO
 
-* Allow user to set times when blocking should occur
-* Let user choose length of block toggle timeout and toggle timeout timeout
-* Per-site blocking times(?)
+* Allow user to set weekly schedule times when blocking should be lifted
 * Decide on licensing
 * Figure out signing / publishing process
 

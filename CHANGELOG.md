@@ -1,3 +1,6 @@
+## v 0.6.0 - 2018-08-09
+* popup.js now honours snooze timeout timeout
+
 ## v0.5.4 - 2018-08-09
 * Options page now includes timeout settings.
 * background.js now honours snooze timeout settings.
