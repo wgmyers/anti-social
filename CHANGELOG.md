@@ -1,5 +1,8 @@
-## v 0.6.1 - 2018-08-09
+## v0.6.1 - 2018-08-09
 * Removed 'update' button from snooze settings - now autosaves on select change
+* Fix startup settings load bug
+* Update to less fugly icons
+* Update to look of popup page
 
 ## v0.6.0 - 2018-08-09
 * popup.js now honours snooze timeout timeout
