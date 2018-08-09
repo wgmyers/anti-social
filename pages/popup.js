@@ -77,6 +77,10 @@ var lastToggle = function lastToggle() {
         console.log(`disabler error: ${error}`);
     }
 
+    function savedOK() {
+        //console.log("New value of blockOn saved as: ", blockOn);
+    }
+
     function saveLastUsedToggle(timestamp) {
         var lastToggleTime;
         var getting;
