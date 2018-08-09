@@ -10,7 +10,7 @@
 // blockFlag.load() - reads current value from storage.
 var blockFlag = function blockToggle() {
     var blockOnDefault = true;
-    var blockOn;
+    var blockOn = blockOnDefault;
 
     function savedOK() {
         //console.log("New value of blockOn saved as: ", blockOn);

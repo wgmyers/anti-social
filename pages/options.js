@@ -206,13 +206,13 @@ function restoreOptions() {
 
         // If no result was returned from storage.local.get,
         // set blockList to the defaults.blockList
-        settings.blockList = result.settings.blockList || defaults.blockList.slice();
-        // populate textarea
+        if (result.settings !== undefined) {
+            settings.blockList = result.settings.blockList || defaults.blockList.slice();
+            settings.snoozeMins = result.settings.snoozeMins || defaults.snoozeMins;
+            settings.snoozeTimeoutHours =
+                result.settings.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
+        }
         updateList(settings.blockList);
-        // Now handle snoozeMins and snoozeTimeoutHours
-        settings.snoozeMins = result.settings.snoozeMins || defaults.snoozeMins;
-        settings.snoozeTimeoutHours =
-            result.settings.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
         updateSnooze();
     }
 

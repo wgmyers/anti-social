@@ -19,7 +19,7 @@ var patterns = [];
 // blockFlag.toggle() - toggles blocking
 var blockFlag = function blockToggle() {
     var blockOnDefault = true;
-    var blockOn;
+    var blockOn = blockOnDefault;
 
     function savedOK() {
         //console.log("New value of blockOn saved as: ", blockOn);
@@ -44,7 +44,7 @@ var blockFlag = function blockToggle() {
 
     function setBlockOnFromStorage(result) {
         blockOn = result.blockOnFlag.key;
-        //console.log("background.js setBlockOnFromStorage found", blockOn);
+        console.log("background.js setBlockOnFromStorage found", blockOn);
         if (blockOn === undefined) {
             blockOn = blockOnDefault;
         }
