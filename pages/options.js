@@ -42,6 +42,16 @@ function updateList(list) {
     });
 }
 
+// updateSnooze
+// Updates the snooze settings dropdowns with current settings.
+function updateSnooze() {
+    var minutes = document.getElementById("minutes");
+    var hours = document.getElementById("hours");
+
+    minutes.value = settings.snoozeMins;
+    hours.value = settings.snoozeTimeoutHours;
+}
+
 // removeSelected
 // Removes selected items from the blockList
 function removeSelected(e) {
@@ -172,12 +182,17 @@ function restoreDefaults(e) {
 // Loads current blocklist and displays it
 function restoreOptions() {
 
-    function setCurrentBlockList(result) {
+    function setSettings(result) {
         // If no result was returned from storage.local.get,
         // set blockList to the defaults.blockList
         settings.blockList = result.blockList || defaults.blockList.slice();
         // populate textarea
         updateList(settings.blockList);
+        // Now handle snoozeMins and snoozeTimeoutHours
+        settings.snoozeMins = result.snoozeMins || defaults.snoozeMins;
+        settings.snoozeTimeoutHours =
+            result.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
+        updateSnooze();
     }
 
     function onError(error) {
@@ -185,7 +200,7 @@ function restoreOptions() {
     }
 
     var getting = browser.storage.local.get("settings");
-    getting.then(setCurrentBlockList, onError);
+    getting.then(setSettings, onError);
 }
 
 // On load, populate block list with current list
