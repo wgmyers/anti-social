@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="options.css" />
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="options.css" />
+    </head>
 
-  <body>
-    <form id="blocked">
-      <h2 data-localize="optionsHeadingOne">Blocked Sites</h2>
-        <select id="blockitems" multiple></select>
-        <p><button type="submit" data-localize="optionsSubmitOne">Remove selected</button></p>
-    </form>
-    <form id="add">
-      <h2 data-localize="optionsHeadingTwo">Add Site To Block</h2>
-      <input type="text" id="newsite" />
-      <p><button type="submit" data-localize="optionsSubmitTwo">Save</button></p>
-    </form>
-    <hr>
-    <form id="reset">
-      <h2 data-localize="optionsHeadingThree">Reset To Defaults</h2>
-      <p class="warning" data-localize="optionsResetWarning">WARNING: this option will reset all settings to defaults and cannot be undone.</p>
-      <p><button type="submit" data-localize="optionsSubmitThree">Reset</button></p>
-    </form>
-    <script src="localise.js"></script>
-    <script src="options.js"></script>
+    <body>
+        <form id="blocked">
+            <h2 data-localize="optionsHeadingOne">Blocked Sites</h2>
+            <select id="blockitems" class="sites" multiple></select>
+            <p><button type="submit" data-localize="optionsSubmitOne">Remove selected</button></p>
+        </form>
+        <form id="add">
+            <h2 data-localize="optionsHeadingTwo">Add Site To Block</h2>
+            <input type="text" id="newsite" />
+            <p><button type="submit" data-localize="optionsSubmitTwo">Save</button></p>
+        </form>
+        <form id="snooze">
+            <h2 data-localize="optionsHeadingTimeout">Snooze Settings</h2>
+            <p><span data-localize="optionsMinutes">Minutes to snooze: </span>
+                <select id="minutes">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                </select>
+            <p><span data-localize="optionsHours">Hours before next snooze: </span>
+                <select id="hours">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    </select>
+            </p>
+            <p><button type="submit" data-localize="optionsSubmitTimeout">Update</button></p>
+        </form>
+        <hr>
+        <form id="reset">
+            <h2 data-localize="optionsHeadingThree">Reset To Defaults</h2>
+            <p class="warning" data-localize="optionsResetWarning">WARNING: this option will reset all settings to defaults and cannot be undone.</p>
+            <p><button type="submit" data-localize="optionsSubmitThree">Reset</button></p>
+        </form>
+        <script src="localise.js"></script>
+        <script src="options.js"></script>
 
-  </body>
+    </body>
 
 </html>

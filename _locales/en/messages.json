@@ -69,6 +69,26 @@
     "description": "Text of options page reset button"
   },
 
+  "optionsHeadingTimeout": {
+    "message": "Snooze Settings",
+    "description": "Heading for snooze settings section"
+  },
+
+  "optionsMinutes": {
+    "message": "Minutes to snooze: ",
+    "description": "Message for snooze settings option"
+  },
+
+  "optionsHours": {
+    "message": "Hours before next snooze: ",
+    "description": "Message for snooze timeout settings options"
+  },
+
+  "optionsSubmitTimeout": {
+      "message": "Update",
+      "description": "Text of timeout settings update button"
+  },
+
   "popupSettings": {
     "message": "Settings",
     "description": "Text of popup settings button"
