@@ -236,5 +236,7 @@ document.getElementById("reset").addEventListener("submit", restoreDefaults);
 // Enable Add URL button
 document.getElementById("add").addEventListener("submit", addToBlockList);
 
-// Enable Update Snooze settings button
-document.getElementById("snooze").addEventListener("submit", setSnooze);
+// Enable Update Snooze settings dropdowns
+document.getElementById("minutes").addEventListener("change", setSnooze);
+document.getElementById("hours").addEventListener("change", setSnooze);
+//document.getElementById("snooze").addEventListener("submit", setSnooze);

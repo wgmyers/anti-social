@@ -84,11 +84,6 @@
     "description": "Message for snooze timeout settings options"
   },
 
-  "optionsSubmitTimeout": {
-      "message": "Update",
-      "description": "Text of timeout settings update button"
-  },
-
   "popupSettings": {
     "message": "Settings",
     "description": "Text of popup settings button"
