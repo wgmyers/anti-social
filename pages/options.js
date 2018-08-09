@@ -190,6 +190,7 @@ function restoreDefaults(e) {
     settings.snoozeMins = defaults.snoozeMins;
     settings.snoozeTimeoutHours = defaults.snoozeTimeoutHours;
     updateList(settings.blockList);
+    updateSnooze();
     saveSettings();
 }
 
