@@ -27,6 +27,30 @@ function saveSettings() {
     console.dir(settings);
 }
 
+// updateSnooze
+// Updates the snooze settings dropdowns with current settings.
+function updateSnooze() {
+    var minutes = document.getElementById("minutes");
+    var hours = document.getElementById("hours");
+
+    minutes.value = settings.snoozeMins;
+    hours.value = settings.snoozeTimeoutHours;
+}
+
+// setSnooze
+// Saves newly set snooze timeout settings.
+function setSnooze(e) {
+    e.preventDefault(); // prevent default form 'submit' action
+
+    var minutes = document.getElementById("minutes");
+    var hours = document.getElementById("hours");
+
+    settings.snoozeMins = minutes.value;
+    settings.snoozeTimeoutHours = hours.value;
+
+    saveSettings();
+}
+
 // updateList
 // Updates the multi-select box with current block list
 function updateList(list) {
@@ -42,15 +66,7 @@ function updateList(list) {
     });
 }
 
-// updateSnooze
-// Updates the snooze settings dropdowns with current settings.
-function updateSnooze() {
-    var minutes = document.getElementById("minutes");
-    var hours = document.getElementById("hours");
 
-    minutes.value = settings.snoozeMins;
-    hours.value = settings.snoozeTimeoutHours;
-}
 
 // removeSelected
 // Removes selected items from the blockList
@@ -183,15 +199,19 @@ function restoreDefaults(e) {
 function restoreOptions() {
 
     function setSettings(result) {
+
+        console.log("setSettings");
+        console.dir(result);
+
         // If no result was returned from storage.local.get,
         // set blockList to the defaults.blockList
-        settings.blockList = result.blockList || defaults.blockList.slice();
+        settings.blockList = result.settings.blockList || defaults.blockList.slice();
         // populate textarea
         updateList(settings.blockList);
         // Now handle snoozeMins and snoozeTimeoutHours
-        settings.snoozeMins = result.snoozeMins || defaults.snoozeMins;
+        settings.snoozeMins = result.settings.snoozeMins || defaults.snoozeMins;
         settings.snoozeTimeoutHours =
-            result.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
+            result.settings.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
         updateSnooze();
     }
 
@@ -214,3 +234,6 @@ document.getElementById("reset").addEventListener("submit", restoreDefaults);
 
 // Enable Add URL button
 document.getElementById("add").addEventListener("submit", addToBlockList);
+
+// Enable Update Snooze settings button
+document.getElementById("snooze").addEventListener("submit", setSnooze);
