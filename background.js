@@ -140,7 +140,11 @@ function updateBlockList() {
         console.log("setCurrentBlockList", result);
         // If no result was returned from storage.local.get,
         // set blockList to the defaultList
-        blockList = result.blockSites.sites || defaultList.slice();
+        if (result.settings) {
+            blockList = result.settings.blockList;
+        } else {
+            blockList = defaultList.slice();
+        }
         // populate patterns properly and update listener
         createBlockList(blockList);
         updateListener();
@@ -150,7 +154,7 @@ function updateBlockList() {
         console.log(`updateBlockList error: ${error}`);
     }
 
-    var getting = browser.storage.local.get("blockSites");
+    var getting = browser.storage.local.get("settings");
     getting.then(setCurrentBlockList, onError);
 }
 
@@ -244,7 +248,7 @@ function handleMessage(request) {
 // If the blockOn flag that has changed, load the new value.
 function checkForUpdate(changes, area) {
     if (area === "local") {
-        if (Object.keys(changes).includes("blockSites")) {
+        if (Object.keys(changes).includes("settings")) {
             updateBlockList();
         }
         if (Object.keys(changes).includes("blockOnFlag")) {

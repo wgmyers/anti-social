@@ -11,21 +11,20 @@ var defaults = {
     snoozeTimeoutHours: 1
 };
 
-var blockList;
+var settings = {
+    blockList: defaults.blockList.slice(),
+    snoozeMins: defaults.snoozeMins,
+    snoozeTimeoutHours: defaults.snoozeTimeoutHours
+}
 
-// saveList
-// Saves the blocklist to storage
-function saveList() {
-    var blockSites = {
-        sites: blockList
-    };
+// saveSettings
+// Saves the settings to storage
+function saveSettings() {
     browser.storage.local.set({
-        blockSites
+        settings
     });
-    console.log("saveList");
-    blockList.forEach(function(el) {
-        console.log(el);
-    });
+    console.log("saveSettings");
+    console.dir(settings);
 }
 
 // updateList
@@ -64,8 +63,8 @@ function removeSelected(e) {
         nodes.forEach(function(site) {
             if(site.selected) {
                 //console.log(site.value);
-                var i = blockList.indexOf(site.value);
-                blockList.splice(i,1);
+                var i = settings.blockList.indexOf(site.value);
+                settings.blockList.splice(i,1);
                 selector.removeChild(site);
             }
         });
@@ -78,7 +77,7 @@ function removeSelected(e) {
 function isUrlOk(url) {
 
     function isUrlInList(url) {
-        return blockList.includes(url);
+        return settings.blockList.includes(url);
     }
 
     function isUrlValid(url) {
@@ -146,14 +145,14 @@ function addToBlockList(e) {
         // Save list also so it persists
         // Add trailing slash if domain only given and slash missing
         newUrl = addSlashIfNeeded(newUrl);
-        blockList.push(newUrl);
+        settings.blockList.push(newUrl);
         // Check to see if we also need to block with prepended 'www.'
         newUrlWithWWW = addWwwIfNeeded(newUrl);
-        if(newUrlWithWWW && (!blockList.includes(newUrlWithWWW))) {
-            blockList.push(newUrlWithWWW);
+        if(newUrlWithWWW && (!settings.blockList.includes(newUrlWithWWW))) {
+            settings.blockList.push(newUrlWithWWW);
         }
-        updateList(blockList);
-        saveList();
+        updateList(settings.blockList);
+        saveSettings();
     }
 }
 
@@ -161,9 +160,11 @@ function addToBlockList(e) {
 // Restores the default block list
 function restoreDefaults(e) {
     e.preventDefault(); // prevent default form 'submit' action
-    blockList = defaults.blockList.slice();
-    updateList(blockList);
-    saveList();
+    settings.blockList = defaults.blockList.slice();
+    settings.snoozeMins = defaults.snoozeMins;
+    settings.snoozeTimeoutHours = defaults.snoozeTimeoutHours;
+    updateList(settings.blockList);
+    saveSettings();
 }
 
 // restoreOptions
@@ -174,16 +175,16 @@ function restoreOptions() {
     function setCurrentBlockList(result) {
         // If no result was returned from storage.local.get,
         // set blockList to the defaults.blockList
-        blockList = result.sites || defaults.blockList.slice();
+        settings.blockList = result.blockList || defaults.blockList.slice();
         // populate textarea
-        updateList(blockList);
+        updateList(settings.blockList);
     }
 
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
-    var getting = browser.storage.local.get("blockSites");
+    var getting = browser.storage.local.get("settings");
     getting.then(setCurrentBlockList, onError);
 }
 
