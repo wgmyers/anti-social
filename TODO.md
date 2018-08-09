@@ -13,7 +13,7 @@ back - and that is intrinsic to auto-timing out a block toggle - we must let the
 user know we have done so. So ugly notifications for some it is.
 * Icons need to be prettier.
 * Popup needs some serious restyling / rewording
-* Options UI needs work - no indication of need to save timeout settings changes.
+* Options UI needs work
 * browser.local.storage is not visible directly in the about:debugging debugger - see:
 https://bugzilla.mozilla.org/show_bug.cgi?id=1292234 - however there is a workaround
 involving typing 'browser.storage.local.get(null, function(items) { console.log(items); });'
