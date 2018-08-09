@@ -2,6 +2,12 @@ html, body {
     width: 300px;
 }
 
+h1 {
+    text-align: center;
+    font-size: 1.7em;
+    background-color: #e31847;
+}
+
 .choice {
     width: 100%;
     padding: 4px;
