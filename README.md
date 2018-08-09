@@ -28,16 +28,16 @@ Sort of. Not really. [SelfControl](https://selfcontrolapp.com/) does the same so
 * You can block specific pages, directories, or whole domains.
 * You can turn blocking off with a 'snooze' button in the popup menu, but it comes back on again after five minutes.
 * If you use the 'snooze' button, you can't use it again for the next hour.
+* You can change the default snooze timeouts; snooze can be up to 25 minutes, snooze timeout up to six hours.
 
 anti-social is still in the pre-release stage, so there's no package or licence yet. When it's ready for release there will be some kind of FLOSS licence for sure.
 
 ### Why not release it already?
 
-There are core features I haven't added yet:
-* Snooze timeout: length should be settable by the user, and so should the length of time before you are allowed to use it again.
+There is one more core feature I haven't added yet:
 * Automatic toggles: so you can allow yourself say one or two hours of social media per day at set times without faffing about with snooze buttons.
 
-When I've implemented those, I'll package it up for release.
+When I've implemented that, I'll package it up for release.
 
 ### But I want to try it now
 
