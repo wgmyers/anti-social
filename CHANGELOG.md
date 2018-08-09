@@ -1,4 +1,8 @@
-##v0.5.3 - 2018-08-08
+## v0.5.4 - 2018-08-09
+* Options page now includes timeout settings.
+* background.js now honours snooze timeout settings.
+
+## v0.5.3 - 2018-08-08
 * options.js now stores site list properly
 * options.html updated with warning on 'reset to defaults' button
 
