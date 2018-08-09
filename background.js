@@ -131,10 +131,10 @@ function updateListener() {
     );
 }
 
-// updateBlockList
+// updateSettings
 // Populates the block list from storage or defaults
 // Updates the patterns array
-function updateBlockList() {
+function updateSettings() {
 
     function setCurrentBlockList(result) {
         console.log("setCurrentBlockList", result);
@@ -142,6 +142,8 @@ function updateBlockList() {
         // set blockList to the defaultList
         if (result.settings) {
             blockList = result.settings.blockList;
+            // While we're here, also update toggler timeout.
+            toggler.setSnoozeMins(result.settings.snoozeMins);
         } else {
             blockList = defaultList.slice();
         }
@@ -151,7 +153,7 @@ function updateBlockList() {
     }
 
     function onError(error) {
-        console.log(`updateBlockList error: ${error}`);
+        console.log(`updateSettings error: ${error}`);
     }
 
     var getting = browser.storage.local.get("settings");
@@ -175,7 +177,7 @@ function updateBlockList() {
 var toggler = function toggler() {
 
     var promise;
-    const delayInMinutes = 5;
+    var snoozeMins = 5;
 
     function onError(error) {
         console.log(`toggler error: ${error}`);
@@ -183,8 +185,13 @@ var toggler = function toggler() {
 
     // Set timeout for blocker toggle
     function setAlarm() {
+        // snoozeMins may be 0, in which case don't bother
+        console.log("setAlarm got", snoozeMins, " minutes.")
+        if (snoozeMins === 0) {
+            return;
+        }
         browser.alarms.create("toggleAlarm", {
-            delayInMinutes
+            snoozeMins
         });
         console.log("toggler.setAlarm() set alarm");
     }
@@ -220,9 +227,16 @@ var toggler = function toggler() {
         }
     }
 
+    // setSnoozeMins
+    // Set the number of minutes to snooze
+    function setSnoozeMins(mins) {
+        snoozeMins = mins;
+    }
+
     return {
         setAlarm: setAlarm,
-        handleAlarm: handleAlarm
+        handleAlarm: handleAlarm,
+        setSnoozeMins: setSnoozeMins
     };
 
 }();
@@ -249,7 +263,7 @@ function handleMessage(request) {
 function checkForUpdate(changes, area) {
     if (area === "local") {
         if (Object.keys(changes).includes("settings")) {
-            updateBlockList();
+            updateSettings();
         }
         if (Object.keys(changes).includes("blockOnFlag")) {
             blockFlag.load();
@@ -257,8 +271,8 @@ function checkForUpdate(changes, area) {
     }
 }
 
-// Populate our blocking list (this also updates the listener)
-updateBlockList();
+// Load settings and populate blocking list
+updateSettings();
 
 // Listen for changes in storage
 browser.storage.onChanged.addListener(checkForUpdate);
