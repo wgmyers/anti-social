@@ -1,5 +1,6 @@
 ## v0.7.0 - 2018-08-10
 * Schedule settings now operational
+* popup.js now queries background script for scheduled snooze status
 
 ## v0.6.2 - 2018-08-10
 * Added weekly schedule settings UI to options page

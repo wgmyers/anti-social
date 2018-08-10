@@ -80,12 +80,12 @@
   },
 
   "optionsScheduleTime": {
-    "message": "Scheduled window start time:",
+    "message": "Scheduled snooze window start time:",
     "description": "Label for time picker in schedule settings"
   },
 
   "optionsScheduleHours": {
-    "message": "Scheduled window length in hours:",
+    "message": "Scheduled snooze window length in hours:",
     "description": "Label for hours picker in schedule settings"
   },
 
@@ -109,14 +109,19 @@
     "description": "Text of popup settings button"
   },
 
-  "popupDisable": {
+  "popupSnooze": {
     "message": "Snooze",
-    "description": "Text of popup 'disable' button"
+    "description": "Text of popup 'snooze' button"
   },
 
-  "popupEnable": {
+  "popupSnoozing": {
     "message": "Snoozing...",
-    "description": "Text of popup 'enable' button"
+    "description": "Text of popup 'snoozing...' message"
+  },
+
+  "popupScheduledSnooze": {
+      "message": "Scheduled Snooze",
+      "description": "Text of button when scheduled snooze is on"
   },
 
   "popupStatusDisabled": {

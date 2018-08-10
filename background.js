@@ -325,13 +325,16 @@ var toggler = function toggler() {
 
 // handleMessage
 // Listens for messages from popup.js
-// The message will be 'doToggle', so we set an alarm to
-// undo the toggle in n minutes time.
-function handleMessage(request) {
+// 'doToggle', asks us to set an alarm to undo the toggle in n minutes time.
+// 'scheduleFlag' asks for the current value of scheduler.scheduleBlock()
+function handleMessage(request, sender, sendResponse) {
     //console.log("handleMessage: ");
     if(request.message === "doToggle") {
         //console.log("background.js got doToggle message from popup.js");
         toggler.setAlarm();
+    } else if(request.message === "scheduleFlag") {
+        console.log("background.js got scheduleFlag message");
+        sendResponse({ response: scheduler.scheduleBlock() });
     } else {
         console.log("background.js got unexpected message")
         console.log(request.message);

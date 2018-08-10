@@ -159,7 +159,7 @@ function initPopup() {
     var statusLine = document.getElementById("status");
     var toggleButton = document.getElementById("toggle");
 
-    function writeStatus() {
+    function writeStatus(scheduleFlag) {
 
         // OK, because we only get here after blockFlag.load's promise
         // has been fulfilled.
@@ -178,32 +178,62 @@ function initPopup() {
         statusLine.innerHTML =
             browser.i18n.getMessage("popupStatusLastUsed") +
             dStr + "<hr>" +
-            (flag ?
+            ((flag && scheduleFlag) ?
                 browser.i18n.getMessage("popupStatusEnabled") :
                 browser.i18n.getMessage("popupStatusDisabled")
             );
 
         // We also need to toggle the 'Snooze' button
 
-        // Grey it out if blockFlag is false
-        if(flag === false || !lastToggle.ok()) {
+        // Grey it out if blockFlag or scheduleFlag are false
+        // or if we are currently on a snooze timout
+        if(flag === false || scheduleFlag === false || !lastToggle.ok()) {
             toggleButton.className = "disabled";
         }
 
-        toggleButton.innerHTML =
-            (flag ?
-                browser.i18n.getMessage("popupDisable") :
-                browser.i18n.getMessage("popupEnable")
-            );
+        // popupSnoozing = Snoozing...
+        // popupSnooze = Snooze
+        // popupScheduledSnooze - Scheduled Snooze
+        // Yes, this is confusing.
+        if(scheduleFlag === false) {
+            toggleButton.innerHTML = browser.i18n.getMessage("popupScheduledSnooze");
+        } else {
+            toggleButton.innerHTML =
+                (flag ?
+                    browser.i18n.getMessage("popupSnooze") :
+                    browser.i18n.getMessage("popupSnoozing")
+                );
+        }
     }
 
     function onError(error) {
         console.log(`initPopup error: ${error}`);
     }
 
-    // We can't call writeStatus until the promise is fulfilled
+    function requestScheduleFlag() {
+        var message = browser.runtime.sendMessage ({
+            "message": "scheduleFlag"
+        });
+        return message;
+    }
+
+    function gotScheduleFlag(message) {
+        console.log("gotScheduleFlag got:")
+        console.log(message);
+        // This function doesn't return a promise, so we have to call
+        // writeStatus() here, which seems ugly, but hopefully will work.
+        writeStatus(message.response);
+    }
+
+    // We need to load blockFlag, which returns a promise,
+    // but we also need to message background.js to tell us the schedule status,
+    // which is a different promise.
+    // Finally we call writeStatus with the response message value.
+    // Convolutedly, this happens in gotScheduleFlag, but I can't see how to
+    // make this happen in a prettier way.
     getting = blockFlag.load();
-    getting.then(writeStatus, onError);
+    getting.then(requestScheduleFlag, onError)
+            .then(gotScheduleFlag, onError);
 
 }
 
