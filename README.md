@@ -26,6 +26,10 @@ Sort of. Not really. [SelfControl](https://selfcontrolapp.com/) does the same so
 ### What's different about anti-social, then?
 
 * You can block specific pages, directories, or whole domains.
+* You can control when the blocker operates both with a weekly schedule and with a snooze button.
+* The weekly schedule indicates which days anti-social should block sites: eg, only block Monday to Friday.
+* On days when blocking is on, you can set an automatic window when blocking is temporarily turned off: eg, don't block at lunchtime.
+* If you don't want an automatic window, you can set the length of it to zero, and there won't be one.
 * You can turn blocking off with a 'snooze' button in the popup menu, but it comes back on again after five minutes.
 * If you use the 'snooze' button, you can't use it again for the next hour.
 * You can change these default snooze timeouts; snooze can be up to 30 minutes, snooze timeout up to six hours.
@@ -35,10 +39,11 @@ anti-social is still in the pre-release stage, so there's no package or licence 
 
 ### Why not release it already?
 
-There is one more core feature I haven't added yet:
-* Automatic toggles: so you can allow yourself say one or two hours of social media per day at set times without faffing about with snooze buttons.
+I'm about to. As of now - 10th August 2018, 20:45, I've implemented all the features on my todo list and they seem to be working.
 
-When I've implemented that, I'll package it up for release.
+There's bound to be all kinds of bugs in it that I haven't found yet though.
+
+But, yes, time to release already, so when I've decided which flavour of free licence to use, I'll package it up and - all being well - it will soon be available in the Firefox extensions repository. I have no idea how long that takes; I imagine it needs to go through some kind of code review.
 
 ### But I want to try it now
 
