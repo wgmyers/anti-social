@@ -54,21 +54,6 @@
     "description": "Action button for options page new block site text entry"
   },
 
-  "optionsResetWarning": {
-    "message": "WARNING: this option will reset all settings to defaults and cannot be undone.",
-    "description": "Warning for Defaults Reset button."
-  },
-
-  "optionsHeadingReset": {
-    "message": "Reset To Defaults",
-    "description": "Heading for options page reset button"
-  },
-
-  "optionsSubmitReset": {
-    "message": "Reset",
-    "description": "Text of options page reset button"
-  },
-
   "optionsHeadingTimeout": {
     "message": "Snooze Settings",
     "description": "Heading for snooze settings section"
@@ -82,6 +67,41 @@
   "optionsHours": {
     "message": "Hours before next snooze: ",
     "description": "Message for snooze timeout settings options"
+  },
+
+  "optionsHeadingSchedule": {
+    "message": "Weekly Schedule",
+    "description": "Heading for schedule settings section"
+  },
+
+  "optionsScheduleDays": {
+    "message": "Block on these days:",
+    "description": "Label for days picker in schedule settings"
+  },
+
+  "optionsScheduleTime": {
+    "message": "Scheduled window start time:",
+    "description": "Label for time picker in schedule settings"
+  },
+
+  "optionsScheduleHours": {
+    "message": "Scheduled window length in hours:",
+    "description": "Label for hours picker in schedule settings"
+  },
+
+  "optionsHeadingReset": {
+    "message": "Reset To Defaults",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsResetWarning": {
+    "message": "WARNING: this option will reset all settings to defaults and cannot be undone.",
+    "description": "Warning for Defaults Reset button."
+  },
+
+  "optionsSubmitReset": {
+    "message": "Reset",
+    "description": "Text of options page reset button"
   },
 
   "popupSettings": {
