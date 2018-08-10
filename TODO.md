@@ -18,3 +18,5 @@ user know we have done so. So ugly notifications for some it is.
 https://bugzilla.mozilla.org/show_bug.cgi?id=1292234 - however there is a workaround
 involving typing 'browser.storage.local.get(null, function(items) { console.log(items); });'
 into the about:debugging debugger console.
+* Weekday picker was taken from codepen here: https://codepen.io/steelwater/pen/BjeZQx
+so I need to include an MIT licence somewhere in acknowledgement.

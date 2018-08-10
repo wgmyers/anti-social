@@ -1,3 +1,7 @@
+## v0.6.2 - 2018-08-10
+* Added weekly schedule settings UI to options page
+* Cleaned up i18n tags
+
 ## v0.6.1 - 2018-08-09
 * Removed 'update' button from snooze settings - now autosaves on select change
 * Fix startup settings load bug

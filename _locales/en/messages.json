@@ -34,22 +34,22 @@
     "description": "Third line of blocked.html text"
   },
 
-  "optionsHeadingOne": {
+  "optionsHeadingSites": {
     "message": "Blocked Sites",
     "description": "Heading for options page list of blocked sites"
   },
 
-  "optionsSubmitOne": {
+  "optionsSubmitSites": {
     "message": "Remove selected",
     "description": "Action button for options page list of blocked sites"
   },
 
-  "optionsHeadingTwo": {
+  "optionsHeadingAdd": {
     "message": "Add Site To Block",
     "description": "Heading for options page new block site text entry"
   },
 
-  "optionsSubmitTwo": {
+  "optionsSubmitAdd": {
     "message": "Save",
     "description": "Action button for options page new block site text entry"
   },
@@ -59,12 +59,12 @@
     "description": "Warning for Defaults Reset button."
   },
 
-  "optionsHeadingThree": {
+  "optionsHeadingReset": {
     "message": "Reset To Defaults",
     "description": "Heading for options page reset button"
   },
 
-  "optionsSubmitThree": {
+  "optionsSubmitReset": {
     "message": "Reset",
     "description": "Text of options page reset button"
   },

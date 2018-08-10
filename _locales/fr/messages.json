@@ -34,32 +34,32 @@
     "description": "Third line of blocked.html text"
   },
 
-  "optionsHeadingOne": {
+  "optionsHeadingSites": {
     "message": "Sites bloqués",
     "description": "Heading for options page list of blocked sites"
   },
 
-  "optionsSubmitOne": {
+  "optionsSubmitSites": {
     "message": "Enlever la sélection",
     "description": "Action button for options page list of blocked sites"
   },
 
-  "optionsHeadingTwo": {
+  "optionsHeadingAdd": {
     "message": "Ajouter un site à bloquer",
     "description": "Heading for options page new block site text entry"
   },
 
-  "optionsSubmitTwo": {
+  "optionsSubmitAdd": {
     "message": "Enregistrer",
     "description": "Action button for options page new block site text entry"
   },
 
-  "optionsHeadingThree": {
+  "optionsHeadingReset": {
     "message": "Rétablir défaut",
     "description": "Heading for options page reset button"
   },
 
-  "optionsSubmitThree": {
+  "optionsSubmitReset": {
     "message": "Réinitialiser",
     "description": "Text of options page reset button"
   }
