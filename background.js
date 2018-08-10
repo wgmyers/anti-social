@@ -215,7 +215,7 @@ function updateListener() {
 function updateSettings() {
 
     function setCurrentBlockList(result) {
-        console.log("setCurrentBlockList", result);
+        //console.log("setCurrentBlockList", result);
         // If no result was returned from storage.local.get,
         // set blockList to the defaultList
         if (result.settings) {
@@ -267,15 +267,15 @@ var toggler = function toggler() {
     function setAlarm() {
         const delayInMinutes = snoozeMins;
         // snoozeMins may be 0, in which case don't bother
-        console.log("setAlarm sees snoozeMins as '" + snoozeMins + "' minutes.");
-        console.log("snoozeMins is a " + typeof snoozeMins);
+        //console.log("setAlarm sees snoozeMins as '" + snoozeMins + "' minutes.");
+        //console.log("snoozeMins is a " + typeof snoozeMins);
         if (snoozeMins === 0) {
             return;
         }
         browser.alarms.create("toggleAlarm", {
             delayInMinutes
         });
-        console.log("toggler.setAlarm() set alarm");
+        //console.log("toggler.setAlarm() set alarm");
     }
 
     function sendNotification() {
@@ -288,13 +288,6 @@ var toggler = function toggler() {
             "message": browser.i18n.getMessage("notificationMessage")
         });
 
-        //browser.browserAction.onClicked.addListener(()=> {
-        //  var clearing = browser.notifications.clear(blockNotification);
-        //  clearing.then(() => {
-        //    console.log("Cleared notification");
-        //  });
-        //});
-
         //console.log("sendNotification: trying to notify user.");
     }
 
@@ -305,7 +298,7 @@ var toggler = function toggler() {
             promise = blockFlag.toggle();
             promise.then(sendNotification, onError);
         } else {
-            console.log("handleAlarm - block already on - not auto unblocking.");
+            //console.log("handleAlarm - block already on - not auto unblocking.");
         }
     }
 
@@ -333,7 +326,7 @@ function handleMessage(request, sender, sendResponse) {
         //console.log("background.js got doToggle message from popup.js");
         toggler.setAlarm();
     } else if(request.message === "scheduleFlag") {
-        console.log("background.js got scheduleFlag message");
+        //console.log("background.js got scheduleFlag message");
         sendResponse({ response: scheduler.scheduleBlock() });
     } else {
         console.log("background.js got unexpected message")

@@ -7,7 +7,7 @@ var defaults = {
     blockList:
         ["https://facebook.com/", "https://www.facebook.com/",
         "https://twitter.com/", "https://www.twitter.com/"],
-    snoozeMins: 5,
+    snoozeMins: 10,
     snoozeTimeoutHours: 1,
     schedule: {
         sun: true,
@@ -18,16 +18,11 @@ var defaults = {
         fri: true,
         sat: true,
         time: "13:00",
-        hours: 2
+        hours: 1
     }
 };
 
 var settings = JSON.parse(JSON.stringify(defaults)); // deep copy
-//var settings = {
-//    blockList: defaults.blockList.slice(),
-//    snoozeMins: defaults.snoozeMins,
-//    snoozeTimeoutHours: defaults.snoozeTimeoutHours
-//}
 
 // saveSettings
 // Saves the settings to storage
@@ -110,8 +105,6 @@ function updateList(list) {
         selector.appendChild(line);
     });
 }
-
-
 
 // removeSelected
 // Removes selected items from the blockList
@@ -287,8 +280,6 @@ document.getElementById("reset").addEventListener("submit", restoreDefaults);
 document.getElementById("add").addEventListener("submit", addToBlockList);
 
 // Enable Update Snooze settings dropdowns
-//document.getElementById("minutes").addEventListener("change", setSnooze);
-//document.getElementById("hours").addEventListener("change", setSnooze);
 document.getElementById("snooze").addEventListener("change", setSnooze);
 
 // Enable Schedule settings elements

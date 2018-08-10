@@ -85,12 +85,6 @@ var lastToggle = function lastToggle() {
         var lastToggleTime;
         var getting;
 
-        // Check we have really been given a Date object
-        //if (timestamp instanceof Date === false) {
-        //    return undefined;
-        //}
-
-        // Ok, save it, return the promise
         lastToggleTime = {
             key: timestamp
         };

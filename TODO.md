@@ -2,6 +2,9 @@
 
 * Decide on licensing
 * Figure out signing / publishing process
+* Code tidy up
+* Complete fr, es, de translations
+* Ask for more translations
 
 ## NOTES
 
