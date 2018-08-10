@@ -123,7 +123,7 @@ var scheduler = function scheduler() {
         // If we're inside the window, return false (ie don't block)
         if(ret === true) {
             if ((dayMinute(hnow, mnow) >= dayMinute(hSched, mSched)) &&
-                (dayMinute(hnow, mnow) < dayMinute(hSched + schedule.hours, mSched)){
+                (dayMinute(hnow, mnow) < dayMinute(hSched + schedule.hours, mSched))) {
                 ret = false;
             }
         }
