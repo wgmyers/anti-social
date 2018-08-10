@@ -100,33 +100,45 @@ var scheduler = function scheduler() {
     // Checks to see if we should be blocking according to schedule.
     // Returns true if so, false otherwise.
     function scheduleBlock() {
-        // FIXME - yeah
-        var ret = true;
+        var ret;
         var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
         var dNow = new Date();
-        var hNow = d.getHours();
-        var mNow = d.getMinutes();
-        var wdNow = d.getDay();
-        var hSched = schedule.time.slice(0,2);
-        var mSched = schedule.time.slice(2,2);
+        var hNow = dNow.getHours();
+        var mNow = dNow.getMinutes();
+        var wdNow = dNow.getDay();
+        var hSched = parseInt(schedule.time.slice(0,2));
+        var mSched = parseInt(schedule.time.slice(-1,2) || "00"); // !
+        var dmNow;
+        var dmStart;
+        var dmEnd; // vars for testing time window
+
+        //console.log("schedule.time is ", schedule.time);
+        //console.log("hSched: " + hSched + ", mSched: " + mSched);
 
         // dayMinute
         // Take hours and minutes, return total nummber of minutes.
         function dayMinute(h, m) {
-            return (h* 60) + m;
+            return (h * 60) + m;
         }
 
         // If the day is marked false in schedule, return false (ie don't block)
         ret = schedule[days[wdNow]];
 
+        //console.log("scheduleBlock day says", ret);
+
         // If ret is still true here, check the time.
         // If we're inside the window, return false (ie don't block)
         if(ret === true) {
-            if ((dayMinute(hnow, mnow) >= dayMinute(hSched, mSched)) &&
-                (dayMinute(hnow, mnow) < dayMinute(hSched + schedule.hours, mSched))) {
+            dmNow = dayMinute(hNow, mNow);
+            dmStart = dayMinute(hSched, mSched);
+            dmEnd = dayMinute(hSched + parseInt(schedule.hours), mSched);
+            //console.log("dmNow: ", dmNow, ", dmStart: ", dmStart, ", dmEnd: ", dmEnd);
+            if ((dmNow >= dmStart) && (dmNow < dmEnd)) {
                 ret = false;
             }
         }
+
+        //console.log("scheduleBlock time says", ret);
 
         return ret;
     }

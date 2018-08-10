@@ -1,8 +1,12 @@
+## v0.7.0 - 2018-08-10
+* Schedule settings now operational
+
 ## v0.6.2 - 2018-08-10
 * Added weekly schedule settings UI to options page
 * Tidied up look of options page a bit
 * Cleaned up i18n tags for logic (translations still incomplete)
 * localise.js now auto-localises short weekday names
+* Weekly schedule settings UI now functional
 
 ## v0.6.1 - 2018-08-09
 * Removed 'update' button from snooze settings - now autosaves on select change
