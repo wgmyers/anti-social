@@ -50,7 +50,7 @@
 
   "web_accessible_resources": [
     "pages/blocked.html",
-    "pages/localise.js",
+    "pages/localise.js"
   ],
 
   "default_locale": "en"
