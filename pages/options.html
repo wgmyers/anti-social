@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        <hr class="light">
         <form id="blocked">
             <h2 data-localize="optionsHeadingOne">Blocked Sites</h2>
             <select id="blockitems" class="sites" multiple></select>
@@ -17,6 +18,7 @@
             <input type="text" id="newsite" />
             <p><button type="submit" data-localize="optionsSubmitTwo">Save</button></p>
         </form>
+        <hr class="light">
         <form id="snooze">
             <h2 data-localize="optionsHeadingTimeout">Snooze Settings</h2>
             <p><span data-localize="optionsMinutes">Minutes to snooze: </span>
@@ -40,7 +42,39 @@
                 </select>
             </p>
         </form>
-        <hr>
+        <hr class="light">
+        <form id="weekly">
+            <h2>Weekly Schedule</h2>
+            <p>Block on these days:</p>
+            <div class="weekDays-selector">
+                <input type="checkbox" id="weekday-sun" class="weekday" />
+                <label for="weekday-sun">Sun</label>
+                <input type="checkbox" id="weekday-mon" class="weekday" />
+                <label for="weekday-mon">Mon</label>
+                <input type="checkbox" id="weekday-tue" class="weekday" />
+                <label for="weekday-tue">Tue</label>
+                <input type="checkbox" id="weekday-wed" class="weekday" />
+                <label for="weekday-wed">Wed</label>
+                <input type="checkbox" id="weekday-thu" class="weekday" />
+                <label for="weekday-thu">Thu</label>
+                <input type="checkbox" id="weekday-fri" class="weekday" />
+                <label for="weekday-fri">Fri</label>
+                <input type="checkbox" id="weekday-sat" class="weekday" />
+                <label for="weekday-sat">Sat</label>
+            </div>
+            <p>Scheduled window start time:</p>
+            <input type="time" id="window-start">
+            <p>Scheduled window length in hours:</p>
+            <select id="window-hours">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+        </form>
+        <hr class="heavy">
         <form id="reset">
             <h2 data-localize="optionsHeadingThree">Reset To Defaults</h2>
             <p class="warning" data-localize="optionsResetWarning">WARNING: this option will reset all settings to defaults and cannot be undone.</p>
