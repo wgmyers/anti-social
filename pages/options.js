@@ -8,14 +8,26 @@ var defaults = {
         ["https://facebook.com/", "https://www.facebook.com/",
         "https://twitter.com/", "https://www.twitter.com/"],
     snoozeMins: 5,
-    snoozeTimeoutHours: 1
+    snoozeTimeoutHours: 1,
+    schedule: {
+        sun: true,
+        mon: true,
+        tue: true,
+        wed: true,
+        thu: true,
+        fri: true,
+        sat: true,
+        time: "13:00",
+        hours: 2
+    }
 };
 
-var settings = {
-    blockList: defaults.blockList.slice(),
-    snoozeMins: defaults.snoozeMins,
-    snoozeTimeoutHours: defaults.snoozeTimeoutHours
-}
+var settings = JSON.parse(JSON.stringify(defaults)); // deep copy
+//var settings = {
+//    blockList: defaults.blockList.slice(),
+//    snoozeMins: defaults.snoozeMins,
+//    snoozeTimeoutHours: defaults.snoozeTimeoutHours
+//}
 
 // saveSettings
 // Saves the settings to storage
@@ -25,6 +37,39 @@ function saveSettings() {
     });
     console.log("saveSettings");
     console.dir(settings);
+}
+
+// updateSchedule
+// Update the schedule settings with current settings.
+function updateSchedule() {
+    var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+    var time = document.getElementById("schedule-time");
+    var hours = document.getElementById("schedule-hours");
+
+    time.value = settings.schedule.time;
+    hours.value = settings.schedule.hours;
+    days.forEach(function(day) {
+        var checkbox = document.getElementById("weekday-" + day);
+        checkbox.checked = settings.schedule[day];
+    });
+}
+
+// setSchedule
+// Saves newly set schedule settings.
+function setSchedule(e) {
+    e.preventDefault();
+    var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+    var time = document.getElementById("schedule-time");
+    var hours = document.getElementById("schedule-hours");
+
+    settings.schedule.time = time.value;
+    settings.schedule.hours = hours.value;
+    days.forEach(function(day) {
+        var checkbox = document.getElementById("weekday-" + day);
+        settings.schedule[day] = checkbox.checked;
+    });
+
+    saveSettings();
 }
 
 // updateSnooze
@@ -189,8 +234,10 @@ function restoreDefaults(e) {
     settings.blockList = defaults.blockList.slice();
     settings.snoozeMins = defaults.snoozeMins;
     settings.snoozeTimeoutHours = defaults.snoozeTimeoutHours;
+    settings.schedule = JSON.parse(JSON.stringify(defaults.schedule));
     updateList(settings.blockList);
     updateSnooze();
+    updateSchedule();
     saveSettings();
 }
 
@@ -211,9 +258,12 @@ function restoreOptions() {
             settings.snoozeMins = result.settings.snoozeMins || defaults.snoozeMins;
             settings.snoozeTimeoutHours =
                 result.settings.snoozeTimeoutHours || defaults.snoozeTimeoutHours;
+            settings.schedule = result.settings.schedule ||
+                JSON.parse(JSON.stringify(defaults.schedule));
         }
         updateList(settings.blockList);
         updateSnooze();
+        updateSchedule();
     }
 
     function onError(error) {
@@ -237,6 +287,9 @@ document.getElementById("reset").addEventListener("submit", restoreDefaults);
 document.getElementById("add").addEventListener("submit", addToBlockList);
 
 // Enable Update Snooze settings dropdowns
-document.getElementById("minutes").addEventListener("change", setSnooze);
-document.getElementById("hours").addEventListener("change", setSnooze);
-//document.getElementById("snooze").addEventListener("submit", setSnooze);
+//document.getElementById("minutes").addEventListener("change", setSnooze);
+//document.getElementById("hours").addEventListener("change", setSnooze);
+document.getElementById("snooze").addEventListener("change", setSnooze);
+
+// Enable Schedule settings elements
+document.getElementById("schedule").addEventListener("change", setSchedule);

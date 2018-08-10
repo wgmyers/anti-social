@@ -1,12 +1,14 @@
 ## v0.6.2 - 2018-08-10
 * Added weekly schedule settings UI to options page
-* Cleaned up i18n tags
+* Tidied up look of options page a bit
+* Cleaned up i18n tags for logic (translations still incomplete)
+* localise.js now auto-localises short weekday names
 
 ## v0.6.1 - 2018-08-09
 * Removed 'update' button from snooze settings - now autosaves on select change
 * Fix startup settings load bug
 * Update to less fugly icons
-* Update to look of popup page
+* Update look of popup page
 
 ## v0.6.0 - 2018-08-09
 * popup.js now honours snooze timeout timeout
