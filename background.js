@@ -73,6 +73,71 @@ var blockFlag = function blockToggle() {
 
 }();
 
+// scheduler
+// Handles the scheduled blocking/unblocking automagically.
+// setSchedule: Updates stored schedule as necessary
+// scheduleBlock: Return true if schedule says block, false if not.
+var scheduler = function scheduler() {
+    var schedule = {
+        sun: true,
+        mon: true,
+        tue: true,
+        wed: true,
+        thu: true,
+        fri: true,
+        sat: true,
+        time: "13:00",
+        hours: 1
+    };
+
+    // setSchedule
+    // Takes new schedule settings and stores them.
+    function setSchedule(newSchedule) {
+        schedule = JSON.parse(JSON.stringify(newSchedule));
+    }
+
+    // scheduleBlock
+    // Checks to see if we should be blocking according to schedule.
+    // Returns true if so, false otherwise.
+    function scheduleBlock() {
+        // FIXME - yeah
+        var ret = true;
+        var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+        var dNow = new Date();
+        var hNow = d.getHours();
+        var mNow = d.getMinutes();
+        var wdNow = d.getDay();
+        var hSched = schedule.time.slice(0,2);
+        var mSched = schedule.time.slice(2,2);
+
+        // dayMinute
+        // Take hours and minutes, return total nummber of minutes.
+        function dayMinute(h, m) {
+            return (h* 60) + m;
+        }
+
+        // If the day is marked false in schedule, return false (ie don't block)
+        ret = schedule[days[wdNow]];
+
+        // If ret is still true here, check the time.
+        // If we're inside the window, return false (ie don't block)
+        if(ret === true) {
+            if ((dayMinute(hnow, mnow) >= dayMinute(hSched, mSched)) &&
+                (dayMinute(hnow, mnow) < dayMinute(hSched + schedule.hours, mSched)){
+                ret = false;
+            }
+        }
+
+        return ret;
+    }
+
+    return {
+        setSchedule: setSchedule,
+        scheduleBlock: scheduleBlock
+    };
+
+}();
+
 // createBlockList
 // Our URL list needs wildcards added to it.
 // This function nukes current patterns content,
@@ -102,7 +167,8 @@ function redirect(requestDetails) {
     var blockerPage = browser.extension.getURL("pages/blocked.html");
 
     // Only perform redirect if blocking actually switched on
-    if (blockFlag.get()) {
+    // and scheduler agrees that we are now blocking
+    if (blockFlag.get() && scheduler.scheduleBlock()) {
         console.log("Redirecting: " + requestDetails.url);
         return {
             redirectUrl: blockerPage
@@ -144,6 +210,8 @@ function updateSettings() {
             blockList = result.settings.blockList;
             // While we're here, also update toggler timeout.
             toggler.setSnoozeMins(result.settings.snoozeMins);
+            // We also need to update our scheduler
+            scheduler.setSchedule(result.settings.schedule);
         } else {
             blockList = defaultList.slice();
         }
