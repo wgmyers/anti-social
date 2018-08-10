@@ -1,3 +1,8 @@
+## v0.7.1 - 2018-08-11
+* Pre-release quick tidy of code.
+* Add GPLv3
+* Rewrite README
+
 ## v0.7.0 - 2018-08-10
 * Schedule settings now operational
 * popup.js now queries background script for scheduled snooze status
