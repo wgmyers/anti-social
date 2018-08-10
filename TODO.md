@@ -1,6 +1,5 @@
 ## TODO
 
-* Allow user to set weekly schedule times when blocking should be lifted
 * Decide on licensing
 * Figure out signing / publishing process
 
