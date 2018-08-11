@@ -4,6 +4,11 @@
 * Complete fr, es, de translations
 * Ask for more translations
 
+## ISSUES
+* Uninstall/reinstall or unload/reload while snoozing results in permanent snooze state;
+typing "var blockOnFlag = { key: true }; browser.storage.local.set({blockOnFlag});" into
+debug console fixes but need a proper fix.
+
 ## NOTES
 
 * Notifications are ugly on my version of Ubuntu: that is related to this bug:
