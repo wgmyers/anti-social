@@ -170,8 +170,10 @@ var lastToggle = function lastToggle() {
 function initPopup() {
 
     var getting;
-    var statusLine = document.getElementById("status");
+    var statusLastUsed = document.getElementById("statusLastUsed");
+    var statusOnOrOff = document.getElementById("statusOnOrOff");
     var toggleButton = document.getElementById("toggle");
+    var toggleButtonText;
 
     function writeStatus(scheduleFlag) {
 
@@ -189,13 +191,15 @@ function initPopup() {
         }
 
         // We need to add the status line
-        statusLine.innerHTML =
-            browser.i18n.getMessage("popupStatusLastUsed") +
-            dStr + "<hr>" +
+        statusLastUsed.appendChild(document.createTextNode(
+            browser.i18n.getMessage("popupStatusLastUsed") + dStr
+        ));
+        statusOnOrOff.appendChild(document.createTextNode(
             ((flag && scheduleFlag) ?
                 browser.i18n.getMessage("popupStatusEnabled") :
                 browser.i18n.getMessage("popupStatusDisabled")
-            );
+            )
+        ));
 
         // We also need to toggle the 'Snooze' button
 
@@ -210,14 +214,15 @@ function initPopup() {
         // popupScheduledSnooze - Scheduled Snooze
         // Yes, this is confusing.
         if(scheduleFlag === false) {
-            toggleButton.innerHTML = browser.i18n.getMessage("popupScheduledSnooze");
+            toggleButtonText= browser.i18n.getMessage("popupScheduledSnooze");
         } else {
-            toggleButton.innerHTML =
+            toggleButtonText =
                 (flag ?
                     browser.i18n.getMessage("popupSnooze") :
                     browser.i18n.getMessage("popupSnoozing")
                 );
         }
+        toggleButton.appendChild(document.createTextNode(toggleButtonText));
     }
 
     function onError(error) {

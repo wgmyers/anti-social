@@ -33,7 +33,7 @@ anti-social will *never* phone home or collect any data from users in any way.
 
 ### And LeechBlock
 
-Yes. A great deal like [LeechBlock](https://addons.mozilla.org/en-GB/firefox/addon/leechblock/).
+Yes. A great deal like [LeechBlock](https://addons.mozilla.org/en-US/firefox/addon/leechblock-ng/).
 
 LeechBlock is mature and very full-featured. I would go so far as to say that had I found LeechBlock three weeks ago I would never have written anti-social. But I didn't, and here we are.
 

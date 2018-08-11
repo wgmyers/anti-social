@@ -1,3 +1,6 @@
+## v0.7.2 - 2018-08-11
+* Remove unsafe calls to innerHTML
+
 ## v0.7.1 - 2018-08-11
 * Pre-release quick tidy of code.
 * Add GPLv3
