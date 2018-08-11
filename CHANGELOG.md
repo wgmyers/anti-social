@@ -1,3 +1,6 @@
+## v0.7.3 - 2018-08-11
+* Remove weird popup update bug
+
 ## v0.7.2 - 2018-08-11
 * Remove unsafe calls to innerHTML
 

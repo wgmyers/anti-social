@@ -175,6 +175,14 @@ function initPopup() {
     var toggleButton = document.getElementById("toggle");
     var toggleButtonText;
 
+    // Remove child nodes from a node
+    function clearChildren(node) {
+        while (node.lastChild) {
+            node.removeChild(node.lastChild);
+        }
+    }
+
+    // Update popup contents
     function writeStatus(scheduleFlag) {
 
         // OK, because we only get here after blockFlag.load's promise
@@ -191,9 +199,11 @@ function initPopup() {
         }
 
         // We need to add the status line
+        clearChildren(statusLastUsed);
         statusLastUsed.appendChild(document.createTextNode(
             browser.i18n.getMessage("popupStatusLastUsed") + dStr
         ));
+        clearChildren(statusOnOrOff);
         statusOnOrOff.appendChild(document.createTextNode(
             ((flag && scheduleFlag) ?
                 browser.i18n.getMessage("popupStatusEnabled") :
@@ -222,6 +232,7 @@ function initPopup() {
                     browser.i18n.getMessage("popupSnoozing")
                 );
         }
+        clearChildren(toggleButton);
         toggleButton.appendChild(document.createTextNode(toggleButtonText));
     }
 
