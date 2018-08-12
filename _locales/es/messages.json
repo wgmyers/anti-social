@@ -54,13 +54,99 @@
     "description": "Action button for options page new block site text entry"
   },
 
+  "optionsHeadingTimeout": {
+    "message": "Configuraciones Snooze",
+    "description": "Heading for snooze settings section"
+  },
+
+  "optionsMinutes": {
+    "message": "Minutos para 'snooze': ",
+    "description": "Message for snooze settings option"
+  },
+
+  "optionsHours": {
+    "message": "Horas hasta el próximo 'snooze': ",
+    "description": "Message for snooze timeout settings options"
+  },
+
+  "optionsHeadingSchedule": {
+    "message": "Programación semanal",
+    "description": "Heading for schedule settings section"
+  },
+
+  "optionsScheduleDays": {
+    "message": "Bloquear en estos días:",
+    "description": "Label for days picker in schedule settings"
+  },
+
+  "optionsScheduleTime": {
+    "message": "Hora de inicio de 'snooze programado':",
+    "description": "Label for time picker in schedule settings"
+  },
+
+  "optionsScheduleHours": {
+    "message": "Duración del 'snooze programado' en horas:",
+    "description": "Label for hours picker in schedule settings"
+  },
+
   "optionsHeadingReset": {
     "message": "Restablecer los valores predeterminados",
     "description": "Heading for options page reset button"
   },
 
+  "optionsResetWarning": {
+    "message": "ADVERTENCIA: esta opción restablecerá todas las configuraciones a los valores predeterminados y no se puede deshacer.",
+    "description": "Warning for Defaults Reset button."
+  },
+
   "optionsSubmitReset": {
     "message": "Restablecer",
     "description": "Text of options page reset button"
+  },
+
+  "popupSettings": {
+    "message": "Configuraciones",
+    "description": "Text of popup settings button"
+  },
+
+  "popupSnooze": {
+    "message": "Snooze",
+    "description": "Text of popup 'snooze' button"
+  },
+
+  "popupSnoozing": {
+    "message": "Snoozing...",
+    "description": "Text of popup 'snoozing...' message"
+  },
+
+  "popupScheduledSnooze": {
+      "message": "Snooze programado",
+      "description": "Text of button when scheduled snooze is on"
+  },
+
+  "popupStatusDisabled": {
+    "message": "El bloqueo está DESACTIVADO",
+    "description": "Text of popup status-is-disabled message"
+  },
+
+  "popupStatusEnabled": {
+    "message": "El bloqueo está ACTIVADO",
+    "description": "Text of popup status-is-enabled message"
+  },
+
+  "notificationMessage": {
+    "message": "El bloqueo de sitios está de nuevo ENCENDIDO\n\nPor favor cerrar todas las pestañas bloqueadas.",
+    "description": "Text of blocking is back on notification"
+  },
+
+  "popupStatusNever": {
+    "message": "Nunca",
+    "description": "Text for situation where snooze has never been used"
+  },
+
+  "popupStatusLastUsed": {
+    "message": "Utilizado por última vez: ",
+    "description": "Text used before last used time in popup"
   }
+
 }
