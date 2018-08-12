@@ -83,7 +83,8 @@ var blockFlag = function blockToggle() {
         getting.then(setBlockOnFromStorage, onError);
     }
 
-    loadValue();
+    //loadValue();
+    saveValue(); // Force blockOn to 'true' default value on first run
 
     return {
         get: getBlockOn,

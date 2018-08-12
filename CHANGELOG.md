@@ -1,3 +1,7 @@
+## v0.7.4 - 2018-08-12
+* Update experimental de, es and fr translations
+* Fix issue where blockFlag not defaulting to 'true' on initial load
+
 ## v0.7.3 - 2018-08-11
 * Remove weird popup update bug
 

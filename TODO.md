@@ -1,16 +1,11 @@
 ## TODO
 
 * Proper code tidy up
-* Complete fr, es, de translations
+* Get feedback on and correct fr, es, de translations
 * Ask for more translations
-* Fix known issues
 
 ## ISSUES
-* Uninstall/reinstall or unload/reload while snoozing results in permanent snooze state; need to ensure sane state on initial load. Debug console workaround is:
-
-    ```var blockOnFlag = { key: true }; browser.storage.local.set({blockOnFlag});```
-
-* Scheduled snooze does not currently trigger notifications: this is non-trivial as we only test for this on site visit or popup display so would need to set explicit timed alarms. Also, do we *want* 'Scheduled Snooze On' notification?
+* Scheduled snooze does not currently trigger notifications: this is non-trivial as we only test for this on site visit or popup display so would need to set explicit timed alarms. Also, do we *want* 'Scheduled Snooze On/Off' notifications? Not sure.
 
 ## NOTES
 
@@ -23,3 +18,6 @@ user know we have done so. So ugly notifications for some it is.
 * browser.local.storage is not visible directly in the about:debugging debugger - see: https://bugzilla.mozilla.org/show_bug.cgi?id=1292234 - debug console workaround:
 
     ```browser.storage.local.get(null, function(items) { console.log(items); });```
+* Up to 0.7.3, uninstall/reinstall or unload/reload while snoozing resulted in permanent snooze state; need to ensure sane state on initial load. This should now be fixed, but if not, the debug console workaround is:
+
+    ```var blockOnFlag = { key: true }; browser.storage.local.set({blockOnFlag});```
