@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "anti-social",
+    "description": "Name of the extension"
+  },
+
+  "extensionDescription": {
+    "message": "En udvidelse der forsøger at gøre mennesker gladere ved at blokere sociale medier.",
+    "description": "Description of the extension"
+  },
+
+  "blockedTitle": {
+    "message": "Blokeret",
+    "description": "Title of blocked.html page"
+  },
+
+  "blockedHeading": {
+    "message": "Datamaten siger nej",
+    "description": "Heading of blocked.html page"
+  },
+
+  "blockedParaOne": {
+    "message": "Denne side er blokeret.",
+    "description": "First line of blocked.html text"
+  },
+
+  "blockedParaTwo": {
+    "message": "Velbekomme.",
+    "description": "Second line of blocked.html text"
+  },
+
+  "blockedParaThree": {
+    "message": "Kærlig hilsen,",
+    "description": "Third line of blocked.html text"
+  },
+
+  "optionsHeadingSites": {
+    "message": "Blokerede Sider",
+    "description": "Heading for options page list of blocked sites"
+  },
+
+  "optionsSubmitSites": {
+    "message": "Fjern valgte",
+    "description": "Action button for options page list of blocked sites"
+  },
+
+  "optionsHeadingAdd": {
+    "message": "Tilføj side til blokering",
+    "description": "Heading for options page new block site text entry"
+  },
+
+  "optionsSubmitAdd": {
+    "message": "Gem",
+    "description": "Action button for options page new block site text entry"
+  },
+
+  "optionsHeadingTimeout": {
+    "message": "Snooze-indstillinger",
+    "description": "Heading for snooze settings section"
+  },
+
+  "optionsMinutes": {
+    "message": "Varighed i minutter: ",
+    "description": "Message for snooze settings option"
+  },
+
+  "optionsHours": {
+    "message": "Timer indtil næste snooze: ",
+    "description": "Message for snooze timeout settings options"
+  },
+
+  "optionsHeadingSchedule": {
+    "message": "Ugentligt skema",
+    "description": "Heading for schedule settings section"
+  },
+
+  "optionsScheduleDays": {
+    "message": "Blokér på disse dage:",
+    "description": "Label for days picker in schedule settings"
+  },
+
+  "optionsScheduleTime": {
+    "message": "Skemalagt snooze, start-tid:",
+    "description": "Label for time picker in schedule settings"
+  },
+
+  "optionsScheduleHours": {
+    "message": "Skemalagt snooze, længde i timer:",
+    "description": "Label for hours picker in schedule settings"
+  },
+
+  "optionsHeadingReset": {
+    "message": "Nulstil til standardindstillinger",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsResetWarning": {
+    "message": "ADVARSEL: dette vil nulstille alle indstillinger og kan ikke fortrydes.",
+    "description": "Warning for Defaults Reset button."
+  },
+
+  "optionsSubmitReset": {
+    "message": "Nulstil",
+    "description": "Text of options page reset button"
+  },
+
+  "popupSettings": {
+    "message": "Indstillinger",
+    "description": "Text of popup settings button"
+  },
+
+  "popupSnooze": {
+    "message": "Snooze",
+    "description": "Text of popup 'snooze' button"
+  },
+
+  "popupSnoozing": {
+    "message": "Snoozer...",
+    "description": "Text of popup 'snoozing...' message"
+  },
+
+  "popupScheduledSnooze": {
+      "message": "Skemalagt Snooze",
+      "description": "Text of button when scheduled snooze is on"
+  },
+
+  "popupStatusDisabled": {
+    "message": "Blokering er DEAKTIVERET",
+    "description": "Text of popup status-is-disabled message"
+  },
+
+  "popupStatusEnabled": {
+    "message": "Blokering er AKTIV",
+    "description": "Text of popup status-is-enabled message"
+  },
+
+  "notificationMessage": {
+    "message": "Blokeringen er igen AKTIV\n\nLuk venligst alle blokerede faneblade.",
+    "description": "Text of blocking is back on notification"
+  },
+
+  "popupStatusNever": {
+    "message": "Aldrig",
+    "description": "Text for situation where snooze has never been used"
+  },
+
+  "popupStatusLastUsed": {
+    "message": "Sidst brugt: ",
+    "description": "Text used before last used time in popup"
+  }
+
+}
