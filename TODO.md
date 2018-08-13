@@ -14,7 +14,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1383964 and my only fix is to not u
 notifications. WONTDO: if we're changing the state of the browser behind the users
 back - and that is intrinsic to auto-timing out a block toggle - we must let the
 user know we have done so. So ugly notifications for some it is.
-* Could do with prettification: in particular the options UI needs work / clarification
+* Could do with prettification: in particular the options UI needs work / clarification, and the popup is tiny on Android.
 * browser.local.storage is not visible directly in the about:debugging debugger - see: https://bugzilla.mozilla.org/show_bug.cgi?id=1292234 - debug console workaround:
 
     ```browser.storage.local.get(null, function(items) { console.log(items); });```
