@@ -1,3 +1,6 @@
+## v0.7.5 - 2018-08-14
+* Added Danish translation (thanks to Kristian Thy)
+
 ## v0.7.4 - 2018-08-12
 * Update experimental de, es and fr translations
 * Fix issue where blockFlag not defaulting to 'true' on initial load

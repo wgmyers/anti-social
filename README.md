@@ -49,6 +49,11 @@ Awww. Is it that obvious?
 
 Thanks.
 
+### TRANSLATIONS
+
+* Danish translation by Kristian Thy.
+* French, German and Spanish translations by myself (and help needed to fix them...)
+
 ### LICENCE
 
 anti-social is licensed under the GPL v3 except for the cute weekday picker code in options.html and option.css.
