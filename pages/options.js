@@ -152,7 +152,7 @@ function removeSelected(e) {
                 selector.removeChild(site);
             }
         });
-        saveList();
+        saveSettings();
     }
 }
 

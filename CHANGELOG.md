@@ -1,3 +1,6 @@
+## v0.7.6 - 2018-08-16
+* Fix bug where removing sites from block list wasn't working
+
 ## v0.7.5 - 2018-08-14
 * Added Danish translation (thanks to Kristian Thy)
 
