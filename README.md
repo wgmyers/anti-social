@@ -3,6 +3,8 @@
 A browser extension aimed at increasing human happiness by blocking social
 media sites.
 
+It's now available to install [here](https://addons.mozilla.org/en-GB/firefox/addon/anti-social-blocker/)
+
 ### What does it do?
 
 * You can block specific pages, directories, or whole domains.
