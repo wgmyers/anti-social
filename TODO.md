@@ -26,3 +26,12 @@ user know we have done so. So ugly notifications for some it is.
 * Packaging notes from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Package_your_extension_
 
     ```zip -r -FS ../my-extension.zip *```
+
+* Chrome port #1 - will need rewrite of at least some of the promise based code.
+Chrome has promises but they are unimplemented in the chrome webextensions API -
+see: https://bugs.chromium.org/p/chromium/issues/detail?id=328932
+* Chrome port #2 - There are various polyfills available to solve the promises
+issue, including then-chrome (https://www.npmjs.com/package/then-chrome) and
+webextension-polyfill (https://github.com/mozilla/webextension-polyfill), but
+none of them fully support the webRequest API which provides the core blocking
+functionality we need. Better to look into rewriting for chrome with callbacks then.
