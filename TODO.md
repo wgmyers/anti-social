@@ -6,7 +6,6 @@
 * Port to Chrome
 
 ## ISSUES
-* Bug: turn snooze on, then alter schedule to trigger Scheduled Snooze before auto-snooze turns off. 'Snooze back on' notification should not now occur, but does. Does not actually turn blocking back on, but behaviour not ideal.
 * Scheduled snooze does not currently trigger notifications: this is non-trivial as we only test for this on site visit or popup display so would need to set explicit timed alarms. Also, do we *want* 'Scheduled Snooze On/Off' notifications? Not sure.
 
 ## NOTES
@@ -23,3 +22,7 @@ user know we have done so. So ugly notifications for some it is.
 * Up to 0.7.3, uninstall/reinstall or unload/reload while snoozing resulted in permanent snooze state; need to ensure sane state on initial load. This should now be fixed, but if not, the debug console workaround is:
 
     ```var blockOnFlag = { key: true }; browser.storage.local.set({blockOnFlag});```
+
+* Packaging notes from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Package_your_extension_
+
+    ```zip -r -FS ../my-extension.zip *```
