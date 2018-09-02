@@ -302,6 +302,11 @@ var toggler = function toggler() {
     function sendNotification() {
         var blockNotification = "block-notification";
 
+        // Don't send notification if scheduled blocking on
+        if (scheduler.scheduleBlock() ===  false) {
+            return;
+        }
+
         browser.notifications.create(blockNotification, {
             "type": "basic",
             "iconUrl": browser.extension.getURL("icons/no-entry-96.png"),

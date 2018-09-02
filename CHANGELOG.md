@@ -1,3 +1,6 @@
+## v0.7.7 - 2018-09-02
+* Fix bug where snooze timeout notification still shown during scheduled snooze.
+
 ## v0.7.6 - 2018-08-16
 * Fix bug where removing sites from block list wasn't working
 
