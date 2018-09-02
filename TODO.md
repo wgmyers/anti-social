@@ -3,8 +3,10 @@
 * Proper code tidy up
 * Get feedback on and correct fr, es, de translations
 * Ask for more translations
+* Port to Chrome
 
 ## ISSUES
+* Bug: turn snooze on, then alter schedule to trigger Scheduled Snooze before auto-snooze turns off. 'Snooze back on' notification should not now occur, but does. Does not actually turn blocking back on, but behaviour not ideal.
 * Scheduled snooze does not currently trigger notifications: this is non-trivial as we only test for this on site visit or popup display so would need to set explicit timed alarms. Also, do we *want* 'Scheduled Snooze On/Off' notifications? Not sure.
 
 ## NOTES
