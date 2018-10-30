@@ -1,3 +1,7 @@
+## v0.7.8 - 2018-09-30
+* Add Portuguese translation (Thanks Victor!)
+* Add corrected French translation (Thanks Victor again!)
+
 ## v0.7.7 - 2018-09-02
 * Fix bug where snooze timeout notification still shown during scheduled snooze.
 
