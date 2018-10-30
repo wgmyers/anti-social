@@ -1,0 +1,152 @@
+{
+  "extensionName": {
+    "message": "anti-social",
+    "description": "Name of the extension"
+  },
+
+  "extensionDescription": {
+    "message": "Uma extensão destinada a aumentar a sua felicidade bloqueando sites de redes sociais.",
+    "description": "Description of the extension"
+  },
+
+  "blockedTitle": {
+    "message": "Bloqueado",
+    "description": "Title of blocked.html page"
+  },
+
+  "blockedHeading": {
+    "message": "Assim não vais lá, computador diz que não.",
+    "description": "Heading of blocked.html page"
+  },
+
+  "blockedParaOne": {
+    "message": "A página foi bloqueada.",
+    "description": "First line of blocked.html text"
+  },
+
+  "blockedParaTwo": {
+    "message": "De nada.",
+    "description": "Second line of blocked.html text"
+  },
+
+  "blockedParaThree": {
+    "message": "Muito amor,",
+    "description": "Third line of blocked.html text"
+  },
+
+  "optionsHeadingSites": {
+    "message": "Sites bloqueados",
+    "description": "Heading for options page list of blocked sites"
+  },
+
+  "optionsSubmitSites": {
+    "message": "Remover seleção",
+    "description": "Action button for options page list of blocked sites"
+  },
+
+  "optionsHeadingAdd": {
+    "message": "Adicionar à lista de sites bloqueados",
+    "description": "Heading for options page new block site text entry"
+  },
+
+  "optionsSubmitAdd": {
+    "message": "Salvar",
+    "description": "Action button for options page new block site text entry"
+  },
+
+  "optionsHeadingTimeout": {
+    "message": "Snooze",
+    "description": "Heading for snooze settings section"
+  },
+
+  "optionsMinutes": {
+    "message": "Snooze em minutos: ",
+    "description": "Message for snooze settings option"
+  },
+
+  "optionsHours": {
+    "message": "Horas antes do proximo snooze timeout: ",
+    "description": "Message for snooze timeout settings options"
+  },
+
+  "optionsHeadingSchedule": {
+    "message": "Horário semanal",
+    "description": "Heading for schedule settings section"
+  },
+
+  "optionsScheduleDays": {
+    "message": "Bloquear nos dias seguintes:",
+    "description": "Label for days picker in schedule settings"
+  },
+
+  "optionsScheduleTime": {
+    "message": "Período começo horário snooze:",
+    "description": "Label for time picker in schedule settings"
+  },
+
+  "optionsScheduleHours": {
+    "message": "Período horário snooze em horas:",
+    "description": "Label for hours picker in schedule settings"
+  },
+
+  "optionsHeadingReset": {
+    "message": "Reposição das definições de fábrica",
+    "description": "Heading for options page reset button"
+  },
+
+  "optionsResetWarning": {
+    "message": "AVISO: Esta opção vai repor todas a definições de fábrica, este processo não pode ser revertido",
+    "description": "Warning for Defaults Reset button."
+  },
+
+  "optionsSubmitReset": {
+    "message": "Repor",
+    "description": "Text of options page reset button"
+  },
+
+  "popupSettings": {
+    "message": "Definições",
+    "description": "Text of popup settings button"
+  },
+
+  "popupSnooze": {
+    "message": "Snooze",
+    "description": "Text of popup 'snooze' button"
+  },
+
+  "popupSnoozing": {
+    "message": "Snoozing...",
+    "description": "Text of popup 'snoozing...' message"
+  },
+
+  "popupScheduledSnooze": {
+      "message": "Horário Snooze",
+      "description": "Text of button when scheduled snooze is on"
+  },
+
+  "popupStatusDisabled": {
+    "message": "Bloqueio desligado",
+    "description": "Text of popup status-is-disabled message"
+  },
+
+  "popupStatusEnabled": {
+    "message": "Bloqueio ligado",
+    "description": "Text of popup status-is-enabled message"
+  },
+
+  "notificationMessage": {
+    "message": "Bloqueio está novamente ligado\n\nFavor fechar todos os separadores.",
+    "description": "Text of blocking is back on notification"
+  },
+
+  "popupStatusNever": {
+    "message": "Nunca",
+    "description": "Text for situation where snooze has never been used"
+  },
+
+  "popupStatusLastUsed": {
+    "message": "Última utilização:",
+    "description": "Text used before last used time in popup"
+  }
+
+}
