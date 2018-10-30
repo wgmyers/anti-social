@@ -30,7 +30,7 @@
   },
 
   "blockedParaThree": {
-    "message": "Bises,",
+    "message": "Bisous,",
     "description": "Third line of blocked.html text"
   },
 
@@ -40,7 +40,7 @@
   },
 
   "optionsSubmitSites": {
-    "message": "Enlever la sélection",
+    "message": "Enlever sélectionné",
     "description": "Action button for options page list of blocked sites"
   },
 
@@ -50,22 +50,22 @@
   },
 
   "optionsSubmitAdd": {
-    "message": "Enregistrer",
+    "message": "Sauvegarder",
     "description": "Action button for options page new block site text entry"
   },
 
   "optionsHeadingTimeout": {
-    "message": "Paramètres Snooze",
+    "message": "Paramètre de mise en veille",
     "description": "Heading for snooze settings section"
   },
 
   "optionsMinutes": {
-    "message": "Minutes de snooze: ",
+    "message": "Minutes a veillée: ",
     "description": "Message for snooze settings option"
   },
 
   "optionsHours": {
-    "message": "Heures jusqu'à la prochaine snooze: ",
+    "message": "Heures jusqu'à la prochaine veille: ",
     "description": "Message for snooze timeout settings options"
   },
 
@@ -75,27 +75,27 @@
   },
 
   "optionsScheduleDays": {
-    "message": "Bloquer sur ces jours:",
+    "message": "Bloquer seulement pendant:",
     "description": "Label for days picker in schedule settings"
   },
 
   "optionsScheduleTime": {
-    "message": "Heure de début de snooze programmé:",
+    "message": "Heure de début de veille programmé:",
     "description": "Label for time picker in schedule settings"
   },
 
   "optionsScheduleHours": {
-    "message": "Durée de snooze programmé en heures:",
+    "message": "Durée de veille programmé en heures:",
     "description": "Label for hours picker in schedule settings"
   },
 
   "optionsHeadingReset": {
-    "message": "Rétablir défaut",
+    "message": "Réinitialiser paramètres",
     "description": "Heading for options page reset button"
   },
 
   "optionsResetWarning": {
-    "message": "ATTENTION: cette option réinitialisera tous les paramètres par défaut et ne peut pas être annulée.",
+    "message": "ATTENTION: cette option réinitialisera tous les paramètres et ne peut pas être annulée.",
     "description": "Warning for Defaults Reset button."
   },
 
@@ -110,17 +110,17 @@
   },
 
   "popupSnooze": {
-    "message": "Snooze",
+    "message": "Veille",
     "description": "Text of popup 'snooze' button"
   },
 
   "popupSnoozing": {
-    "message": "Snoozing...",
+    "message": "Mettre en veille...",
     "description": "Text of popup 'snoozing...' message"
   },
 
   "popupScheduledSnooze": {
-      "message": "Snooze programmé",
+      "message": "Veille programmé",
       "description": "Text of button when scheduled snooze is on"
   },
 
