@@ -53,8 +53,20 @@ Thanks.
 
 ### TRANSLATIONS
 
+* Portuguese translation by Victor Tea
+* French translation by Victor Tea
 * Danish translation by Kristian Thy.
-* French, German and Spanish translations by myself (and help needed to fix them...)
+* German and Spanish translations by myself (and help needed to fix them...)
+
+### TRANSLATION HELP WANTED
+
+Please get in touch if you would like to translate anti-social into any language
+not currently listed above. I will be extremely grateful.
+
+Please especially get in touch if you are a native speaker who can proofread / correct / improve
+the German or Spanish translations.
+
+Thank you.
 
 ### LICENCE
 
