@@ -1,4 +1,4 @@
-## v0.7.8 - 2018-09-30
+## v0.7.8 - 2018-10-30
 * Add Portuguese translation (Thanks Victor!)
 * Add corrected French translation (Thanks Victor again!)
 
